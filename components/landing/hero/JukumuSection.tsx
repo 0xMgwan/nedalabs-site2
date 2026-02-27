@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Sprout, Heart, Leaf, Users } from 'lucide-react';
 import { jukumuStats } from '@/data/config/heroData';
 
@@ -39,9 +40,21 @@ export function JukumuSection() {
               Regenerative Finance
             </div>
 
-            <h2 className="mb-4 font-display text-3xl font-semibold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl dark:text-white/[0.92]">
-              JUKUMU Network
-            </h2>
+            <div className="mb-4 flex items-center gap-4">
+              <div className="relative">
+                <div className="absolute -inset-1 animate-pulse rounded-xl bg-emerald-400/20 blur-sm dark:bg-emerald-400/10" />
+                <Image
+                  src="/assets/logos/jukumu.jpg"
+                  alt="JUKUMU Network"
+                  width={48}
+                  height={48}
+                  className="relative h-12 w-12 rounded-xl object-cover shadow-lg"
+                />
+              </div>
+              <h2 className="font-display text-3xl font-semibold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl dark:text-white/[0.92]">
+                JUKUMU Network
+              </h2>
+            </div>
 
             <p className="mb-8 text-base leading-relaxed text-primary-500 dark:text-white/70">
               Empowering sustainable community development through regenerative finance.

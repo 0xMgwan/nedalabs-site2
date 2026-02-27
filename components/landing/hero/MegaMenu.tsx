@@ -1,14 +1,20 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { ChevronRight, Play } from 'lucide-react';
+import Image from 'next/image';
+import { ChevronRight, Play, Code, Network } from 'lucide-react';
 import { megaMenuLeft, megaMenuRight, megaMenuPromo } from '@/data/config/heroData';
 
-const iconColorMap = {
-  blue: 'bg-menuIcon-blue',
-  orange: 'bg-menuIcon-orange',
-  yellow: 'bg-menuIcon-yellow',
-  green: 'bg-menuIcon-green',
+const productLogos = {
+  'BOT-Regulated Stablecoins': '/assets/logos/ntzs.jpg',
+  'Instant Payments (NEDApay)': '/assets/logos/nedapay.jpg',
+  'Developer APIs': null, // Will use Code icon
+  'JUKUMU Network': '/assets/logos/jukumu.jpg',
+} as const;
+
+const productIcons = {
+  'Developer APIs': Code,
+  'JUKUMU Network': Network,
 } as const;
 
 interface MegaMenuProps {
@@ -51,25 +57,42 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
       <div className="grid grid-cols-2 gap-6">
         {/* Left column */}
         <div className="flex flex-col gap-1">
-          {megaMenuLeft.map((item) => (
-            <a
-              key={item.title}
-              href="#"
-              className="group flex items-start gap-3 rounded-lg p-2.5 transition-colors hover:bg-primary-100/60 dark:hover:bg-white/5"
-            >
-              <span
-                className={`mt-1 block h-2.5 w-2.5 shrink-0 rounded-full ${iconColorMap[item.iconColor]}`}
-              />
-              <div>
-                <p className="text-sm font-medium text-primary-800 dark:text-white/[0.92]">
-                  {item.title}
-                </p>
-                <p className="text-xs text-primary-500 dark:text-white/50">
-                  {item.subtitle}
-                </p>
-              </div>
-            </a>
-          ))}
+          {megaMenuLeft.map((item) => {
+            const logo = productLogos[item.title as keyof typeof productLogos];
+            const IconComponent = productIcons[item.title as keyof typeof productIcons];
+            
+            return (
+              <a
+                key={item.title}
+                href="#"
+                className="group flex items-start gap-3 rounded-lg p-2.5 transition-colors hover:bg-primary-100/60 dark:hover:bg-white/5"
+              >
+                {logo ? (
+                  <Image
+                    src={logo}
+                    alt={item.title}
+                    width={20}
+                    height={20}
+                    className="mt-0.5 h-5 w-5 shrink-0 rounded object-cover"
+                  />
+                ) : IconComponent ? (
+                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded bg-primary-800 dark:bg-white">
+                    <IconComponent className="h-3 w-3 text-white dark:text-primary-800" />
+                  </div>
+                ) : (
+                  <span className="mt-1 block h-2.5 w-2.5 shrink-0 rounded-full bg-primary-400" />
+                )}
+                <div>
+                  <p className="text-sm font-medium text-primary-800 dark:text-white/[0.92]">
+                    {item.title}
+                  </p>
+                  <p className="text-xs text-primary-500 dark:text-white/50">
+                    {item.subtitle}
+                  </p>
+                </div>
+              </a>
+            );
+          })}
 
           {/* Promo card */}
           <a

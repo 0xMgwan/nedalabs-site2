@@ -31,21 +31,25 @@ export function NavBar() {
         <div className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <div key={link.label} className="relative">
-              <button
-                onClick={() => {
-                  if (link.hasChevron && link.label === 'Products') {
-                    setMegaMenuOpen((prev) => !prev);
-                  }
-                }}
-                className="flex items-center gap-1 rounded-pill px-3 py-2 text-sm font-medium text-primary-800 transition-opacity hover:opacity-70 dark:text-white/[0.92]"
-              >
-                <a href={link.href} className="flex items-center gap-1">
+              {link.hasChevron && link.label === 'Products' ? (
+                <button
+                  onClick={() => setMegaMenuOpen((prev) => !prev)}
+                  className="flex items-center gap-1 rounded-pill px-3 py-2 text-sm font-medium text-primary-800 transition-opacity hover:opacity-70 dark:text-white/[0.92]"
+                >
+                  {link.label}
+                  <ChevronDown className={`h-3.5 w-3.5 text-primary-400 transition-transform dark:text-white/50 ${megaMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+              ) : (
+                <a
+                  href={link.href}
+                  className="flex items-center gap-1 rounded-pill px-3 py-2 text-sm font-medium text-primary-800 transition-opacity hover:opacity-70 dark:text-white/[0.92]"
+                >
                   {link.label}
                   {link.hasChevron && (
                     <ChevronDown className="h-3.5 w-3.5 text-primary-400 dark:text-white/50" />
                   )}
                 </a>
-              </button>
+              )}
               {link.label === 'Products' && (
                 <MegaMenu isOpen={megaMenuOpen} onClose={closeMegaMenu} />
               )}
