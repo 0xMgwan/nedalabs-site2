@@ -34,7 +34,7 @@ const getLogoSize = (dimensions: { width: number; height: number }) => {
 };
 
 export async function GET() {
-  const imagePath = path.join(process.cwd(), '/public/static/images/logo.png');
+  const imagePath = path.join(process.cwd(), '/public/assets/logos/NEDA.jpg');
   const file = await readFile(imagePath);
   const mimeType = mime.lookup(imagePath);
   const dimensions = sizeOf(file) as { width: number; height: number };
@@ -107,13 +107,14 @@ export async function GET() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={logoImage}
-            alt="Logo"
+            alt="NEDA LABS"
             style={{
-              padding: 20,
-              backgroundColor: 'white',
-              borderRadius: '100%',
+              padding: 15,
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '20px',
               width: logoWidth,
               height: logoHeight,
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
             }}
           />
 
@@ -121,9 +122,10 @@ export async function GET() {
             style={{
               fontSize: 48,
               fontWeight: 700,
-              color: 'black',
+              color: 'white',
               marginBottom: 0,
               textAlign: 'center',
+              textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)',
             }}
           >
             {metadata.title}
@@ -131,10 +133,11 @@ export async function GET() {
           <p
             style={{
               marginTop: 12,
-              fontSize: 26,
-              color: 'black',
-              fontWeight: 700,
+              fontSize: 24,
+              color: 'rgba(255, 255, 255, 0.9)',
+              fontWeight: 500,
               textAlign: 'center',
+              textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)',
             }}
           >
             {metadata.description}
