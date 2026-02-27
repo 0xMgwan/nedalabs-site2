@@ -43,7 +43,14 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: './',
     siteName: siteConfig.title,
-    images: [siteConfig.socialBanner],
+    images: [
+      {
+        url: siteConfig.socialBanner,
+        width: 1200,
+        height: 600,
+        alt: 'NEDA LABS - Building the Future of Finance',
+      }
+    ],
     locale: 'en_US',
     type: 'website',
   },
@@ -67,7 +74,14 @@ export const metadata: Metadata = {
   twitter: {
     title: siteConfig.title,
     card: 'summary_large_image',
-    images: [siteConfig.socialBanner],
+    images: [
+      {
+        url: siteConfig.socialBanner,
+        width: 1200,
+        height: 600,
+        alt: 'NEDA LABS - Building the Future of Finance',
+      }
+    ],
   },
 };
 
