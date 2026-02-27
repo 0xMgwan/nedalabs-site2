@@ -5,7 +5,13 @@ import { developerFeatures, codeSnippet } from '@/data/config/heroData';
 
 export function DevelopersSection() {
   return (
-    <section id="developers" className="w-full bg-surface-light py-24 dark:bg-surface-dark">
+    <section id="developers" className="relative w-full bg-surface-light py-24 dark:bg-surface-dark">
+      {/* Background image */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03] dark:opacity-[0.06]"
+        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Left content */}

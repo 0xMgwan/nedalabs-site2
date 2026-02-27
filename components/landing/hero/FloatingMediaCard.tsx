@@ -43,6 +43,7 @@ const slides = [
   },
   {
     icon: Network,
+    image: '/assets/logos/jukumu.jpg',
     subtitle: 'Regenerative Finance',
     title: 'JUKUMU Network',
     description:
