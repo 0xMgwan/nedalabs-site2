@@ -76,11 +76,11 @@ const slideVariants = {
 
 const childStagger = {
   hidden: { opacity: 0, y: 16 },
-  show: (i: number) => ({
+  show: {
     opacity: 1,
     y: 0,
-    transition: { delay: 0.08 * i, duration: 0.45, ease: [0.22, 1, 0.36, 1] },
-  }),
+    transition: { duration: 0.45, ease: 'easeOut' as const },
+  },
 };
 
 export function FloatingMediaCard() {
@@ -161,7 +161,6 @@ export function FloatingMediaCard() {
           >
             {/* Logo / Icon with entrance animation */}
             <motion.div
-              custom={0}
               variants={childStagger}
               initial="hidden"
               animate="show"
@@ -190,7 +189,6 @@ export function FloatingMediaCard() {
 
             {/* Subtitle pill */}
             <motion.span
-              custom={1}
               variants={childStagger}
               initial="hidden"
               animate="show"
@@ -201,7 +199,6 @@ export function FloatingMediaCard() {
 
             {/* Title */}
             <motion.h3
-              custom={2}
               variants={childStagger}
               initial="hidden"
               animate="show"
@@ -212,7 +209,6 @@ export function FloatingMediaCard() {
 
             {/* Description */}
             <motion.p
-              custom={3}
               variants={childStagger}
               initial="hidden"
               animate="show"
@@ -223,7 +219,6 @@ export function FloatingMediaCard() {
 
             {/* CTA buttons */}
             <motion.div
-              custom={4}
               variants={childStagger}
               initial="hidden"
               animate="show"
