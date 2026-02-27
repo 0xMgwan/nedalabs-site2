@@ -107,8 +107,9 @@ export default function RootLayout({
           sizes="32x32"
           href="/assets/logos/nedalabs.jpg"
         />
-        <meta name="generator" content="Shipixen" />
+        <meta name="generator" content="NEDA LABS" />
         <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="version" content="2.0.0" />
         <meta
           name="theme-color"
           media="(prefers-color-scheme: light)"
