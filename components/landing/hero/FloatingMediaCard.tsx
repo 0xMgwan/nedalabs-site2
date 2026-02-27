@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Coins, Zap, Code, Network } from 'lucide-react';
 
@@ -169,9 +170,11 @@ export function FloatingMediaCard() {
               {slide.image ? (
                 <div className="relative">
                   <div className="absolute -inset-2 animate-pulse rounded-2xl bg-secondary-400/20 blur-lg dark:bg-secondary-400/10" />
-                  <img
+                  <Image
                     src={slide.image}
                     alt={slide.title}
+                    width={80}
+                    height={80}
                     className="relative h-16 w-16 rounded-2xl object-cover shadow-menu sm:h-20 sm:w-20"
                   />
                 </div>

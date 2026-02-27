@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export function SiteFooter() {
   return (
     <footer className="w-full border-t border-primary-200/60 bg-surface-light py-12 dark:border-white/10 dark:bg-surface-dark">
@@ -9,7 +11,7 @@ export function SiteFooter() {
           <div className="md:col-span-1">
             <div className="mb-3 flex items-center gap-2.5">
               <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg">
-                <img src="/assets/logos/nedalabs.jpg" alt="NEDA LABS" className="h-9 w-9 object-cover" />
+                <Image src="/assets/logos/nedalabs.jpg" alt="NEDA LABS" width={36} height={36} className="h-9 w-9 object-cover" />
               </div>
               <span className="font-display text-lg font-bold tracking-tight text-primary-900 dark:text-white">
                 NEDA <span className="font-normal">LABS</span>

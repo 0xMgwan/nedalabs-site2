@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { ArrowRight, Code, Network } from 'lucide-react';
 import { products, stats } from '@/data/config/heroData';
 
@@ -40,9 +41,11 @@ export function ProductsSection() {
               >
                 <div className="mb-4 flex items-center gap-3">
                   {logo ? (
-                    <img
+                    <Image
                       src={logo}
                       alt={product.title}
+                      width={24}
+                      height={24}
                       className="h-6 w-6 rounded object-cover"
                     />
                   ) : IconComponent ? (
