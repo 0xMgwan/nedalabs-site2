@@ -13,7 +13,13 @@ const productLogos = [
 
 export function ProductsSection() {
   return (
-    <section id="products" className="w-full bg-canvas-light py-24 dark:bg-canvas-dark">
+    <section id="products" className="relative w-full bg-canvas-light py-24 dark:bg-canvas-dark">
+      {/* Background image */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.04] dark:opacity-[0.08]"
+        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-16 text-center">

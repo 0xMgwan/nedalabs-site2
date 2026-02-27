@@ -23,7 +23,13 @@ const pillars = [
 
 export function JukumuSection() {
   return (
-    <section id="jukumu" className="w-full bg-canvas-light py-24 dark:bg-canvas-dark">
+    <section id="jukumu" className="relative w-full bg-canvas-light py-24 dark:bg-canvas-dark">
+      {/* Background image */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.05] dark:opacity-[0.10]"
+        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Left content */}

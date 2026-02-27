@@ -4,7 +4,13 @@ import { ArrowRight, Mail } from 'lucide-react';
 
 export function CtaSection() {
   return (
-    <section id="get-started" className="w-full bg-canvas-light py-24 dark:bg-canvas-dark">
+    <section id="get-started" className="relative w-full bg-canvas-light py-24 dark:bg-canvas-dark">
+      {/* Background image */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.04] dark:opacity-[0.08]"
+        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
         <h2 className="mb-4 font-display text-3xl font-semibold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl dark:text-white/[0.92]">
           Ready to Transform Your Financial Operations?

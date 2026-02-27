@@ -7,7 +7,13 @@ const featureIcons = [Lock, Zap, Globe, BarChart3, Shield, Headphones];
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="w-full bg-surface-light py-24 dark:bg-surface-dark">
+    <section id="features" className="relative w-full bg-surface-light py-24 dark:bg-surface-dark">
+      {/* Background image */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03] dark:opacity-[0.06]"
+        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
+        aria-hidden="true"
+      />
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-16 text-center">
