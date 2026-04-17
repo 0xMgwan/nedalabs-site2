@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Sprout, Heart, Leaf, Users } from 'lucide-react';
-import { jukumuStats } from '@/data/config/heroData';
+import { washikadauStats } from '@/data/config/heroData';
 
 const pillars = [
   {
@@ -24,7 +24,7 @@ const pillars = [
 
 export function JukumuSection() {
   return (
-    <section id="jukumu" className="relative w-full bg-canvas-light py-24 dark:bg-canvas-dark">
+    <section id="washikadau" className="relative w-full bg-canvas-light py-24 dark:bg-canvas-dark">
       {/* Background image */}
       <div
         className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.05] dark:opacity-[0.10]"
@@ -45,20 +45,20 @@ export function JukumuSection() {
                 <div className="absolute -inset-1 animate-pulse rounded-xl bg-emerald-400/20 blur-sm dark:bg-emerald-400/10" />
                 <Image
                   src="/assets/logos/jukumu.jpg"
-                  alt="JUKUMU Network"
+                  alt="WashikaDAU"
                   width={48}
                   height={48}
                   className="relative h-12 w-12 rounded-xl object-cover shadow-lg"
                 />
               </div>
               <h2 className="font-display text-3xl font-semibold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl dark:text-white/[0.92]">
-                JUKUMU Network
+                WashikaDAU
               </h2>
             </div>
 
             <p className="mb-8 text-base leading-relaxed text-primary-500 dark:text-white/70">
               Empowering sustainable community development through regenerative finance.
-              JUKUMU connects financial innovation with environmental and social impact across East Africa.
+              WashikaDAU connects financial innovation with environmental and social impact across East Africa.
             </p>
 
             <div className="mb-8 space-y-4">
@@ -83,7 +83,9 @@ export function JukumuSection() {
             </div>
 
             <a
-              href="#join-jukumu"
+              href="https://www.washikadau.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-pill bg-primary-800 px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-button-hover active:translate-y-0 dark:bg-white dark:text-primary-800"
             >
               Join the Movement
@@ -93,7 +95,7 @@ export function JukumuSection() {
 
           {/* Right stats grid */}
           <div className="grid grid-cols-2 gap-4">
-            {jukumuStats.map((stat, index) => (
+            {washikadauStats.map((stat, index) => (
               <div
                 key={stat.label}
                 className={`rounded-card-md border border-primary-200/60 bg-surface-light p-6 shadow-nav dark:border-white/10 dark:bg-surface-dark dark:shadow-nav-dark ${

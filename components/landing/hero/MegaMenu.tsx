@@ -9,12 +9,12 @@ const productLogos = {
   'BOT-Regulated Stablecoins': '/assets/logos/ntzs.jpg',
   'Instant Payments (NEDApay)': '/assets/logos/nedapay.jpg',
   'Developer APIs': null, // Will use Code icon
-  'JUKUMU Network': '/assets/logos/jukumu.jpg',
+  'WashikaDAU': '/assets/logos/jukumu.jpg',
 } as const;
 
 const productIcons = {
   'Developer APIs': Code,
-  'JUKUMU Network': Network,
+  'WashikaDAU': Network,
 } as const;
 
 interface MegaMenuProps {
@@ -52,7 +52,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
     <div
       ref={panelRef}
       role="menu"
-      className="absolute left-0 top-full mt-2 w-[640px] rounded-menu-md bg-surface-light p-6 shadow-menu dark:bg-surface-dark dark:shadow-menu-dark"
+      className="absolute left-0 top-full mt-2 w-[640px] rounded-menu-md bg-surface-light p-6 shadow-menu border border-primary-100 dark:bg-canvas-dark dark:border-white/[0.08] dark:shadow-menu-dark"
     >
       <div className="grid grid-cols-2 gap-6">
         {/* Left column */}

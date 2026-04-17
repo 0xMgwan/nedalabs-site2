@@ -1,4 +1,5 @@
 export { AuroraBackground } from './AuroraBackground';
+export { GeminiHeroSection } from './GeminiHeroSection';
 export { HeroIllustration } from './HeroIllustration';
 export { NavBar } from './NavBar';
 export { HeroSection } from './HeroSection';

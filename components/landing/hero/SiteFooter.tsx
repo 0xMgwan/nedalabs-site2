@@ -31,7 +31,7 @@ export function SiteFooter() {
               <li><a href="https://www.ntzs.co.tz/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-500 transition-opacity hover:opacity-70 dark:text-white/60">nTZS Stablecoin</a></li>
               <li><a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-500 transition-opacity hover:opacity-70 dark:text-white/60">NEDApay</a></li>
               <li><a href="https://nedapayplus.xyz/docs" target="_blank" rel="noopener noreferrer" className="text-xs text-primary-500 transition-opacity hover:opacity-70 dark:text-white/60">Developer APIs</a></li>
-              <li><a href="#jukumu" className="text-xs text-primary-500 transition-opacity hover:opacity-70 dark:text-white/60">JUKUMU Network</a></li>
+              <li><a href="https://www.washikadau.com" className="text-xs text-primary-500 transition-opacity hover:opacity-70 dark:text-white/60">WashikaDAU</a></li>
             </ul>
           </div>
 

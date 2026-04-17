@@ -15,13 +15,10 @@ export function NavBar() {
   const closeMegaMenu = useCallback(() => setMegaMenuOpen(false), []);
 
   return (
-    <nav className="sticky top-0 z-10 w-full">
+    <nav className="sticky top-0 z-50 w-full bg-surface-light/90 dark:bg-canvas-dark/95 backdrop-blur-md border-b border-primary-100 dark:border-white/[0.06]">
       <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6 lg:px-10 xl:px-14">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg">
-            <Image src="/assets/logos/nedalabs.jpg" alt="NEDA LABS" width={40} height={40} className="h-10 w-10 object-cover" />
-          </div>
+        <Link href="/" className="flex items-center">
           <span className="font-display text-xl font-bold tracking-tight text-primary-900 dark:text-white">
             NEDA <span className="font-normal">LABS</span>
           </span>

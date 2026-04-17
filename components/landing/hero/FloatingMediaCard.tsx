@@ -43,13 +43,13 @@ const slides = [
   },
   {
     icon: Network,
-    image: '/assets/logos/jukumu.jpg',
+    image: '/assets/logos/washikadau.jpg',
     subtitle: 'Regenerative Finance',
-    title: 'JUKUMU Network',
+    title: 'WashikaDAU',
     description:
       'Empowering sustainable community development through ReFi. Supporting financial inclusion and eco-friendly initiatives across East Africa.',
     cta: 'Join Movement',
-    href: '#jukumu',
+    href: 'https://www.washikadau.com',
     accent: 'from-emerald-400/20 via-emerald-500/10 to-transparent',
     accentDark: 'dark:from-emerald-400/10 dark:via-emerald-600/5 dark:to-transparent',
   },

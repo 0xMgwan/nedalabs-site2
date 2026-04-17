@@ -2,7 +2,7 @@ export const navLinks = [
   { label: 'Products', hasChevron: true, href: '#products' },
   { label: 'Solutions', hasChevron: false, href: '#features' },
   { label: 'Developers', hasChevron: false, href: '#developers' },
-  { label: 'JUKUMU', hasChevron: false, href: '#jukumu' },
+  { label: 'WashikaDAU', hasChevron: false, href: 'https://www.washikadau.com' },
 ];
 
 export const heroContent = {
@@ -36,10 +36,10 @@ export const megaMenuLeft = [
     href: 'https://nedapayplus.xyz/docs',
   },
   {
-    title: 'JUKUMU Network',
+    title: 'WashikaDAU Network',
     subtitle: 'Regenerative finance for sustainable community impact',
     iconColor: 'green' as const,
-    href: '#jukumu',
+    href: 'https://www.washikadau.com',
   },
 ];
 
@@ -91,10 +91,10 @@ export const products = [
     href: 'https://nedapayplus.xyz/docs',
   },
   {
-    title: 'JUKUMU Network',
+    title: 'WashikaDAU Network',
     description: 'Regenerative finance platform supporting sustainable community impact and financial inclusion.',
     features: ['Community impact focus', 'Eco-friendly initiatives', 'Financial inclusion', 'Transparent impact tracking'],
-    href: '#jukumu',
+    href: 'https://www.washikadau.com',
   },
 ];
 
@@ -114,7 +114,7 @@ export const features = [
   { title: '24/7 Support', description: 'Expert support team available round the clock to assist you.' },
 ];
 
-export const jukumuStats = [
+export const washikadauStats = [
   { value: '$5M+', label: 'Impact Funding' },
   { value: '200+', label: 'Communities Served' },
   { value: '50+', label: 'Green Projects' },
