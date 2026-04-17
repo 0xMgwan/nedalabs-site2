@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { codeSnippet } from '@/data/config/heroData';
 
@@ -83,15 +84,11 @@ const AccordionItem = ({ item, isActive, onMouseEnter }: AccordionItemProps) => 
         /* Image panel */
         <>
           <div className="absolute inset-0 bg-primary-900" />
-          <img
+          <Image
             src={item.imageUrl}
             alt={item.title}
-            className="absolute inset-0 w-full h-full object-contain p-6"
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              target.onerror = null;
-              target.src = '';
-            }}
+            fill
+            className="object-contain p-6"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
         </>
