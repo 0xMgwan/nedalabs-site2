@@ -5,109 +5,66 @@ import { Sprout, Heart, Leaf, Users } from 'lucide-react';
 import { washikadauStats } from '@/data/config/heroData';
 
 const pillars = [
-  {
-    icon: Heart,
-    title: 'Community Impact',
-    description: 'Supporting local initiatives that create lasting positive change',
-  },
-  {
-    icon: Leaf,
-    title: 'Eco-Friendly Initiatives',
-    description: 'Funding sustainable projects that protect our environment',
-  },
-  {
-    icon: Users,
-    title: 'Financial Inclusion',
-    description: 'Bringing financial services to underserved communities',
-  },
+  { icon: Heart, title: 'Community Impact', description: 'Supporting local initiatives that create lasting positive change' },
+  { icon: Leaf, title: 'Eco-Friendly Initiatives', description: 'Funding sustainable projects that protect our environment' },
+  { icon: Users, title: 'Financial Inclusion', description: 'Bringing financial services to underserved communities' },
 ];
 
 export function JukumuSection() {
   return (
-    <section id="washikadau" className="relative w-full bg-canvas-light py-24 dark:bg-canvas-dark">
-      {/* Background image */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.05] dark:opacity-[0.10]"
-        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
-        aria-hidden="true"
-      />
+    <section id="washikadau" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          {/* Left content */}
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+          {/* Left */}
           <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-pill bg-primary-800 px-3 py-1 text-xs font-medium text-white dark:bg-white/[0.14] dark:text-white/[0.92]">
-              <Sprout className="h-3.5 w-3.5" />
-              Regenerative Finance
-            </div>
+            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">// REGENERATIVE FINANCE</p>
 
-            <div className="mb-4 flex items-center gap-4">
-              <div className="relative">
-                <div className="absolute -inset-1 animate-pulse rounded-xl bg-emerald-400/20 blur-sm dark:bg-emerald-400/10" />
-                <Image
-                  src="/assets/logos/jukumu.jpg"
-                  alt="WashikaDAU"
-                  width={48}
-                  height={48}
-                  className="relative h-12 w-12 rounded-xl object-cover shadow-lg"
-                />
+            <div className="flex items-center gap-3 mb-4">
+              <div className="border border-black/20 dark:border-white/20 p-1">
+                <Image src="/assets/logos/jukumu.jpg" alt="WashikaDAU" width={32} height={32}
+                  className="h-8 w-8 object-cover opacity-80" />
               </div>
-              <h2 className="font-display text-3xl font-semibold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl dark:text-white/[0.92]">
-                WashikaDAU
+              <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-4xl tracking-tight">
+                WASHIKADAU
               </h2>
             </div>
 
-            <p className="mb-8 text-base leading-relaxed text-primary-500 dark:text-white/70">
-              Empowering sustainable community development through regenerative finance.
-              WashikaDAU connects financial innovation with environmental and social impact across East Africa.
+            <p className="font-mono text-sm text-black/60 dark:text-white/60 leading-relaxed mb-8 max-w-md">
+              Empowering sustainable community development through regenerative finance. WashikaDAU connects financial innovation with environmental and social impact across East Africa.
             </p>
 
             <div className="mb-8 space-y-4">
-              {pillars.map((pillar) => {
+              {pillars.map((pillar, i) => {
                 const Icon = pillar.icon;
                 return (
-                  <div key={pillar.title} className="flex items-start gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary-800 dark:bg-white">
-                      <Icon className="h-4 w-4 text-white dark:text-primary-800" />
+                  <div key={pillar.title} className="flex items-start gap-3 border border-black/10 dark:border-white/10 p-4 hover:border-black/20 dark:hover:border-white/20 transition-colors">
+                    <div className="border border-black/20 dark:border-white/20 p-1.5 shrink-0">
+                      <Icon className="h-3.5 w-3.5 text-black/60 dark:text-white/60" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-primary-800 dark:text-white/[0.92]">
-                        {pillar.title}
-                      </h3>
-                      <p className="text-sm text-primary-500 dark:text-white/60">
-                        {pillar.description}
-                      </p>
+                      <p className="text-[11px] font-mono uppercase tracking-widest text-black dark:text-white mb-1">{pillar.title}</p>
+                      <p className="text-[10px] font-mono text-black/50 dark:text-white/50">{pillar.description}</p>
                     </div>
+                    <span className="ml-auto text-[9px] font-mono text-black/20 dark:text-white/20">{String(i + 1).padStart(2, '0')}</span>
                   </div>
                 );
               })}
             </div>
 
-            <a
-              href="https://www.washikadau.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-pill bg-primary-800 px-5 py-2.5 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-button-hover active:translate-y-0 dark:bg-white dark:text-primary-800"
-            >
-              Join the Movement
-              <Sprout className="h-4 w-4" />
+            <a href="https://www.washikadau.com" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-black dark:border-white font-mono text-xs uppercase tracking-widest px-6 py-3 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200">
+              <Sprout className="h-3.5 w-3.5" />
+              JOIN THE MOVEMENT
             </a>
           </div>
 
-          {/* Right stats grid */}
-          <div className="grid grid-cols-2 gap-4">
+          {/* Right stats */}
+          <div className="grid grid-cols-2 gap-px bg-black/10 dark:bg-white/10">
             {washikadauStats.map((stat, index) => (
-              <div
-                key={stat.label}
-                className={`rounded-card-md border border-primary-200/60 bg-surface-light p-6 shadow-nav dark:border-white/10 dark:bg-surface-dark dark:shadow-nav-dark ${
-                  index % 2 === 1 ? 'mt-8' : ''
-                }`}
-              >
-                <div className="mb-2 text-2xl font-semibold text-primary-800 dark:text-white/[0.92]">
-                  {stat.value}
-                </div>
-                <p className="text-sm text-primary-500 dark:text-white/60">
-                  {stat.label}
-                </p>
+              <div key={stat.label}
+                className={`bg-white dark:bg-black p-8 ${index % 2 === 1 ? 'mt-8' : ''}`}>
+                <div className="font-mono font-bold text-black dark:text-white text-3xl mb-1">{stat.value}</div>
+                <div className="text-[9px] font-mono uppercase tracking-widest text-black/40 dark:text-white/40">{stat.label}</div>
               </div>
             ))}
           </div>

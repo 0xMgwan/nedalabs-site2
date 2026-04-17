@@ -7,33 +7,19 @@ import {
   CtaSection,
   SiteFooter,
 } from '@/components/landing/hero';
-import { LandingAccordionItem } from '@/components/ui/interactive-image-accordion';
+import { HeroAsciiOne } from '@/components/ui/hero-ascii-one';
 
 export default function Page() {
   return (
-    <div className="bg-surface-light dark:bg-canvas-dark">
-      {/* Sticky nav */}
+    <div className="bg-white dark:bg-black font-mono">
       <NavBar />
+      <HeroAsciiOne />
 
-      {/* Hero: Interactive Image Accordion */}
-      <LandingAccordionItem />
-
-      {/* Products */}
       <ProductsSection />
-
-      {/* Features / Why Choose Us */}
       <FeaturesSection />
-
-      {/* WashikaDAU */}
       <JukumuSection />
-
-      {/* Developers */}
       <DevelopersSection />
-
-      {/* CTA */}
       <CtaSection />
-
-      {/* Footer */}
       <SiteFooter />
     </div>
   );

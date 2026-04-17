@@ -15,8 +15,6 @@ const slides = [
     cta: 'Explore nTZS',
     href: 'https://www.ntzs.co.tz/',
     image: '/assets/logos/ntzs.jpg',
-    accent: 'from-secondary-400/20 via-secondary-500/10 to-transparent',
-    accentDark: 'dark:from-secondary-400/10 dark:via-secondary-600/5 dark:to-transparent',
   },
   {
     icon: Zap,
@@ -27,8 +25,6 @@ const slides = [
     cta: 'Start Sending',
     href: 'https://www.nedapay.xyz/',
     image: '/assets/logos/nedapay.jpg',
-    accent: 'from-blue-400/20 via-blue-500/10 to-transparent',
-    accentDark: 'dark:from-blue-400/10 dark:via-blue-600/5 dark:to-transparent',
   },
   {
     icon: Code,
@@ -38,20 +34,17 @@ const slides = [
       'Integrate global payout infrastructure into your application. Comprehensive documentation, SDKs, and support for developers.',
     cta: 'View Docs',
     href: 'https://nedapayplus.xyz/docs',
-    accent: 'from-amber-400/20 via-amber-500/10 to-transparent',
-    accentDark: 'dark:from-amber-400/10 dark:via-amber-600/5 dark:to-transparent',
+    image: null,
   },
   {
     icon: Network,
-    image: '/assets/logos/washikadau.jpg',
+    image: '/assets/logos/jukumu.jpg',
     subtitle: 'Regenerative Finance',
     title: 'WashikaDAU',
     description:
       'Empowering sustainable community development through ReFi. Supporting financial inclusion and eco-friendly initiatives across East Africa.',
     cta: 'Join Movement',
     href: 'https://www.washikadau.com',
-    accent: 'from-emerald-400/20 via-emerald-500/10 to-transparent',
-    accentDark: 'dark:from-emerald-400/10 dark:via-emerald-600/5 dark:to-transparent',
   },
 ];
 
@@ -112,7 +105,6 @@ export function FloatingMediaCard() {
     setProgress(0);
   }, []);
 
-  // Auto-play timer
   useEffect(() => {
     if (!isAuto) return;
     const start = Date.now();
@@ -137,17 +129,21 @@ export function FloatingMediaCard() {
 
   return (
     <div className="relative z-[3] mx-auto w-full max-w-4xl px-6 lg:px-10">
-      {/* Glow behind card */}
       <motion.div
         key={`glow-${current}`}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 0.6, scale: 1 }}
         transition={{ duration: 0.8 }}
-        className={`pointer-events-none absolute -inset-8 rounded-[40px] bg-gradient-to-br blur-3xl ${slide.accent} ${slide.accentDark}`}
+        className="pointer-events-none absolute -inset-8 bg-black/5 dark:bg-white/5 blur-3xl"
         aria-hidden="true"
       />
 
-      <div className="relative overflow-hidden rounded-card-lg border border-white/40 bg-white/60 shadow-floating-media backdrop-blur-xl dark:border-white/[0.08] dark:bg-white/[0.04] dark:shadow-floating-media-dark">
+      <div className="relative overflow-hidden border border-black/20 dark:border-white/20 bg-white dark:bg-black">
+        {/* Corner accents */}
+        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-black/40 dark:border-white/40 z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-black/40 dark:border-white/40 z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black/40 dark:border-white/40 z-10 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/40 dark:border-white/40 z-10 pointer-events-none" />
 
         <AnimatePresence custom={direction} mode="wait">
           <motion.div
@@ -158,32 +154,28 @@ export function FloatingMediaCard() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col items-center px-6 py-6 text-center sm:px-8 sm:py-8 lg:px-10"
+            className="relative flex flex-col items-center px-6 py-8 text-center sm:px-8 sm:py-10 lg:px-10"
           >
-            {/* Logo / Icon with entrance animation */}
+            {/* Logo / Icon */}
             <motion.div
               variants={childStagger}
               initial="hidden"
               animate="show"
-              className="mb-4"
+              className="mb-5"
             >
               {slide.image ? (
-                <div className="relative">
-                  <div className="absolute -inset-2 animate-pulse rounded-2xl bg-secondary-400/20 blur-lg dark:bg-secondary-400/10" />
+                <div className="border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 inline-block">
                   <Image
                     src={slide.image}
                     alt={slide.title}
-                    width={80}
-                    height={80}
-                    className="relative h-16 w-16 rounded-2xl object-cover shadow-menu sm:h-20 sm:w-20"
+                    width={64}
+                    height={64}
+                    className="h-14 w-14 object-cover sm:h-16 sm:w-16"
                   />
                 </div>
               ) : (
-                <div className="relative">
-                  <div className="absolute -inset-2 animate-pulse rounded-2xl bg-secondary-400/20 blur-lg dark:bg-secondary-400/10" />
-                  <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-primary-800 shadow-menu sm:h-20 sm:w-20 dark:bg-white">
-                    <Icon className="h-8 w-8 text-white dark:text-primary-800" />
-                  </div>
+                <div className="border border-black/20 dark:border-white/20 bg-white dark:bg-black flex h-14 w-14 items-center justify-center sm:h-16 sm:w-16">
+                  <Icon className="h-7 w-7 text-black/60 dark:text-white/60" />
                 </div>
               )}
             </motion.div>
@@ -193,7 +185,7 @@ export function FloatingMediaCard() {
               variants={childStagger}
               initial="hidden"
               animate="show"
-              className="mb-3 inline-block rounded-pill border border-primary-800/20 bg-primary-800/[0.06] px-3.5 py-1 text-xs font-semibold uppercase tracking-widest text-primary-700 dark:border-white/10 dark:bg-white/[0.06] dark:text-white/80"
+              className="mb-3 inline-block border border-black/20 dark:border-white/20 px-3 py-1 text-[9px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50"
             >
               {slide.subtitle}
             </motion.span>
@@ -203,7 +195,7 @@ export function FloatingMediaCard() {
               variants={childStagger}
               initial="hidden"
               animate="show"
-              className="mb-2 font-display text-2xl font-bold tracking-tight text-primary-900 sm:text-3xl lg:text-4xl dark:text-white"
+              className="mb-3 font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl tracking-tight"
             >
               {slide.title}
             </motion.h3>
@@ -213,7 +205,7 @@ export function FloatingMediaCard() {
               variants={childStagger}
               initial="hidden"
               animate="show"
-              className="mb-5 max-w-lg text-sm leading-relaxed text-primary-500 sm:text-base dark:text-white/60"
+              className="mb-6 max-w-lg font-mono text-sm text-black/60 dark:text-white/60 leading-relaxed"
             >
               {slide.description}
             </motion.p>
@@ -229,14 +221,14 @@ export function FloatingMediaCard() {
                 href={slide.href}
                 target={slide.href.startsWith('http') ? '_blank' : undefined}
                 rel={slide.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group inline-flex items-center gap-2 rounded-pill bg-primary-800 px-6 py-3 text-sm font-medium text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-button-hover active:translate-y-0 dark:bg-white dark:text-primary-800"
+                className="group inline-flex items-center gap-2 border border-black dark:border-white font-mono text-xs uppercase tracking-widest px-6 py-3 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200"
               >
                 {slide.cta}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </a>
               <a
                 href="mailto:support@nedapay.xyz"
-                className="inline-flex items-center gap-2 rounded-pill border border-primary-200/80 bg-white/60 px-6 py-3 text-sm font-medium text-primary-700 backdrop-blur-sm transition-all hover:bg-white hover:shadow-nav dark:border-white/10 dark:bg-white/[0.06] dark:text-white/80 dark:hover:bg-white/10"
+                className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 font-mono text-xs uppercase tracking-widest px-6 py-3 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all duration-200"
               >
                 Contact Sales
               </a>
@@ -247,14 +239,14 @@ export function FloatingMediaCard() {
         {/* Navigation arrows */}
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/60 bg-white/70 p-2.5 text-primary-600 shadow-lg backdrop-blur-md transition-all hover:scale-110 hover:bg-white hover:shadow-nav dark:border-white/10 dark:bg-white/10 dark:text-white/80 dark:hover:bg-white/20"
+          className="absolute left-4 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-white/60 bg-white/70 p-2.5 text-primary-600 shadow-lg backdrop-blur-md transition-all hover:scale-110 hover:bg-white hover:shadow-nav dark:border-white/10 dark:bg-white/10 dark:text-white/80 dark:hover:bg-white/20"
+          className="absolute right-4 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
           aria-label="Next slide"
         >
           <ChevronRight className="h-4 w-4" />
@@ -271,27 +263,27 @@ export function FloatingMediaCard() {
               setIsAuto(false);
               setProgress(0);
             }}
-            className="group relative h-1.5 overflow-hidden rounded-full transition-all"
+            className="group relative h-1.5 overflow-hidden transition-all"
             style={{ width: index === current ? 40 : 12 }}
             aria-label={`Go to slide ${index + 1}`}
           >
             {/* Track */}
             <span
-              className={`absolute inset-0 rounded-full transition-colors ${
+              className={`absolute inset-0 transition-colors ${
                 index === current
-                  ? 'bg-primary-300/40 dark:bg-white/20'
-                  : 'bg-primary-300/30 group-hover:bg-primary-400/40 dark:bg-white/15 dark:group-hover:bg-white/30'
+                  ? 'bg-black/20 dark:bg-white/20'
+                  : 'bg-black/10 dark:bg-white/10 group-hover:bg-black/20 dark:group-hover:bg-white/20'
               }`}
             />
             {/* Fill */}
             {index === current && (
               <motion.span
-                className="absolute inset-y-0 left-0 rounded-full bg-primary-800 dark:bg-white"
+                className="absolute inset-y-0 left-0 bg-black dark:bg-white"
                 style={{ width: `${progress * 100}%` }}
               />
             )}
             {index < current && (
-              <span className="absolute inset-0 rounded-full bg-primary-800/60 dark:bg-white/50" />
+              <span className="absolute inset-0 bg-black/50 dark:bg-white/50" />
             )}
           </button>
         ))}

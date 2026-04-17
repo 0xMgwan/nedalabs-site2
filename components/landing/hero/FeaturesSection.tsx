@@ -7,45 +7,36 @@ const featureIcons = [Lock, Zap, Globe, BarChart3, Shield, Headphones];
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative w-full bg-surface-light py-24 dark:bg-surface-dark">
-      {/* Background image */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.03] dark:opacity-[0.06]"
-        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
-        aria-hidden="true"
-      />
+    <section id="features" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Header */}
-        <div className="mb-16 text-center">
-          <span className="mb-4 inline-block rounded-pill bg-primary-800 px-3 py-1 text-xs font-medium text-white dark:bg-white/[0.14] dark:text-white/[0.92]">
-            Why Choose Neda Labs
-          </span>
-          <h2 className="mb-4 font-display text-3xl font-semibold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl dark:text-white/[0.92]">
-            Built for Trust & Performance
+        <div className="mb-12">
+          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">// WHY CHOOSE US</p>
+          <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-3">
+            BUILT FOR TRUST<br />&amp; PERFORMANCE
           </h2>
-          <p className="mx-auto max-w-2xl text-base text-primary-500 dark:text-white/70">
+          <p className="font-mono text-sm text-black/50 dark:text-white/50 max-w-xl">
             Enterprise-grade infrastructure designed for the demands of modern finance
           </p>
         </div>
 
-        {/* Feature cards */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px md:grid-cols-2 lg:grid-cols-3 bg-black/10 dark:bg-white/10">
           {features.map((feature, index) => {
             const Icon = featureIcons[index];
             return (
-              <div
-                key={feature.title}
-                className="group rounded-card-md border border-primary-200/60 bg-canvas-light p-6 transition-all hover:shadow-nav dark:border-white/10 dark:bg-canvas-dark dark:hover:shadow-nav-dark"
-              >
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-800 transition-transform group-hover:scale-110 dark:bg-white">
-                  <Icon className="h-5 w-5 text-white dark:text-primary-800" />
+              <div key={feature.title}
+                className="group bg-white dark:bg-black p-8 hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors">
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="border border-black/20 dark:border-white/20 p-2 group-hover:border-black/50 dark:group-hover:border-white/50 transition-colors">
+                    <Icon className="h-4 w-4 text-black/60 dark:text-white/60 group-hover:text-black dark:group-hover:text-white transition-colors" />
+                  </div>
+                  <span className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/30 dark:text-white/30">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
                 </div>
-
-                <h3 className="mb-2 text-base font-semibold text-primary-800 dark:text-white/[0.92]">
+                <h3 className="font-mono font-bold text-black dark:text-white text-sm uppercase tracking-wide mb-2">
                   {feature.title}
                 </h3>
-
-                <p className="text-sm leading-relaxed text-primary-500 dark:text-white/60">
+                <p className="font-mono text-xs text-black/50 dark:text-white/50 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

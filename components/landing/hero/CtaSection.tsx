@@ -4,58 +4,56 @@ import { ArrowRight, Mail } from 'lucide-react';
 
 export function CtaSection() {
   return (
-    <section id="get-started" className="relative w-full bg-canvas-light py-24 dark:bg-canvas-dark">
-      {/* Background image */}
-      <div
-        className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.04] dark:opacity-[0.08]"
-        style={{ backgroundImage: "url('/assets/logos/NEDA.jpg')" }}
-        aria-hidden="true"
-      />
+    <section id="get-started" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
-        <h2 className="mb-4 font-display text-3xl font-semibold tracking-tight text-primary-800 sm:text-4xl lg:text-5xl dark:text-white/[0.92]">
-          Ready to Transform Your Financial Operations?
+
+        {/* Top decoration */}
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+          <span className="font-mono text-[9px] text-black/30 dark:text-white/30 uppercase tracking-widest">&#8734;</span>
+          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+        </div>
+
+        <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-4">// GET STARTED</p>
+
+        <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-4">
+          READY TO TRANSFORM YOUR<br />FINANCIAL OPERATIONS?
         </h2>
 
-        <p className="mb-6 text-base text-primary-500 dark:text-white/70">
+        <p className="font-mono text-sm text-black/60 dark:text-white/60 mb-2">
           Join thousands of businesses and developers building the future of finance with Neda Labs
         </p>
-
-        <p className="mb-8 text-xs font-medium text-primary-400 dark:text-white/50">
+        <p className="font-mono text-[10px] text-black/30 dark:text-white/30 mb-8">
           Explore our products and get started today
         </p>
 
-        <div className="mb-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a
-            href="https://www.nedapay.xyz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-pill bg-primary-800 px-6 py-3 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:shadow-button-hover active:translate-y-0 dark:bg-white dark:text-primary-800"
-          >
-            Get Started Now
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row mb-10">
+          <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-black dark:border-white font-mono text-xs uppercase tracking-widest px-7 py-3 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200 group">
+            GET STARTED NOW
+            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </a>
-          <a
-            href="mailto:support@nedapay.xyz"
-            className="inline-flex items-center gap-2 rounded-pill border border-primary-200 bg-surface-light px-6 py-3 text-sm font-medium text-primary-800 transition-all hover:border-primary-300 hover:shadow-button-hover dark:border-white/10 dark:bg-surface-dark dark:text-white/[0.92] dark:hover:border-white/20"
-          >
-            <Mail className="h-4 w-4" />
-            Contact Sales
+          <a href="mailto:support@nedapay.xyz"
+            className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 font-mono text-xs uppercase tracking-widest px-7 py-3 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all duration-200">
+            <Mail className="h-3.5 w-3.5" />
+            CONTACT SALES
           </a>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-primary-500 dark:text-white/50">
-          <div className="flex items-center gap-1.5">
-            <span className="block h-1.5 w-1.5 rounded-full bg-primary-400 dark:bg-white/40" />
-            No setup fees
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="block h-1.5 w-1.5 rounded-full bg-primary-400 dark:bg-white/40" />
-            Cancel anytime
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="block h-1.5 w-1.5 rounded-full bg-primary-400 dark:bg-white/40" />
-            24/7 support
-          </div>
+        <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[9px] text-black/30 dark:text-white/30 uppercase tracking-widest">
+          {['No setup fees', 'Cancel anytime', '24/7 support'].map((item) => (
+            <div key={item} className="flex items-center gap-2">
+              <span className="text-black/20 dark:text-white/20">—</span>
+              {item}
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom decoration */}
+        <div className="flex items-center justify-center gap-3 mt-8">
+          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
+          <span className="font-mono text-[9px] text-black/20 dark:text-white/20 uppercase tracking-widest">NEDALABS.PROTOCOL</span>
+          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
         </div>
       </div>
     </section>
