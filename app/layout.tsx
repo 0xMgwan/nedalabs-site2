@@ -137,7 +137,7 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
 
-      <body className="flex flex-col bg-canvas-light text-primary-800 antialiased dark:bg-canvas-dark dark:text-white/[0.92] min-h-screen">
+      <body className="flex flex-col bg-white text-primary-800 antialiased dark:bg-black dark:text-white/[0.92] min-h-screen">
         <ThemeProviders>
           <AnalyticsWrapper />
 

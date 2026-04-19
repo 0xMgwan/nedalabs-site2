@@ -2,7 +2,6 @@ export const navLinks = [
   { label: 'Products', hasChevron: true, href: '#products' },
   { label: 'Solutions', hasChevron: false, href: '#features' },
   { label: 'Developers', hasChevron: false, href: '#developers' },
-  { label: 'WashikaDAU', hasChevron: false, href: 'https://www.washikadau.com' },
 ];
 
 export const heroContent = {

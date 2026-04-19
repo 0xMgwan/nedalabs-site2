@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Menu, X, Sun, Moon } from 'lucide-react';
+import { ChevronDown, Menu, X, Sun, Moon, ArrowRight } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { navLinks } from '@/data/config/heroData';
 import { MegaMenu } from './MegaMenu';
@@ -88,30 +88,67 @@ export function NavBar() {
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
+      {/* Mobile menu — full-screen overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white dark:bg-black border-b border-black/10 dark:border-white/10 px-6 pb-5 pt-3 z-50">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center py-3 text-[11px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors border-b border-black/5 dark:border-white/5"
-            >
-              {link.label}
-            </a>
-          ))}
-          <div className="mt-4 flex flex-col gap-2">
+        <div className="fixed inset-0 z-[100] bg-black flex flex-col lg:hidden">
+          {/* Top bar */}
+          <div className="flex items-center justify-between px-6 h-14 border-b border-white/10 shrink-0">
+            <span className="font-mono text-xl font-bold tracking-widest text-white">
+              NEDA<span className="font-light opacity-50"> LABS</span>
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2 text-white/50 hover:text-white transition-colors"
+                aria-label="Toggle theme"
+              >
+                <Sun className="h-4 w-4 hidden dark:block" />
+                <Moon className="h-4 w-4 block dark:hidden" />
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 text-white/60 hover:text-white transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Nav links */}
+          <div className="flex-1 flex flex-col justify-center px-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                onClick={() => setMobileMenuOpen(false)}
+                className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-white/30 transition-colors"
+              >
+                <span className="text-2xl font-mono font-bold text-white uppercase tracking-tight group-hover:opacity-70 transition-opacity">
+                  {link.label}
+                </span>
+                <ArrowRight className="h-5 w-5 text-white/20 group-hover:text-white/60 transition-colors" />
+              </a>
+            ))}
+          </div>
+
+          {/* Bottom CTAs */}
+          <div className="px-8 pb-10 flex flex-col gap-3 shrink-0">
+            <div className="flex items-center gap-2 mb-2 opacity-30">
+              <div className="flex-1 h-px bg-white" />
+              <span className="text-[9px] font-mono text-white">NEDALABS.PROTOCOL</span>
+              <div className="flex-1 h-px bg-white" />
+            </div>
             <a href="mailto:support@nedapay.xyz"
               onClick={() => setMobileMenuOpen(false)}
-              className="border border-black/20 dark:border-white/20 px-4 py-3 text-center text-[10px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all">
+              className="border border-white/20 py-3.5 text-center font-mono text-xs uppercase tracking-widest text-white/60 hover:border-white/50 hover:text-white transition-all">
               Contact
             </a>
             <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
-              className="border border-black dark:border-white px-4 py-3 text-center text-[10px] font-mono uppercase tracking-widest text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+              className="border border-white py-3.5 text-center font-mono text-xs uppercase tracking-widest text-white hover:bg-white hover:text-black transition-all">
               Get Started
             </a>
           </div>
