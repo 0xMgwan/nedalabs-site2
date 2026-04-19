@@ -2,7 +2,6 @@ import {
   NavBar,
   ProductsSection,
   FeaturesSection,
-  JukumuSection,
   DevelopersSection,
   CtaSection,
   SiteFooter,
@@ -17,7 +16,6 @@ export default function Page() {
 
       <ProductsSection />
       <FeaturesSection />
-      <JukumuSection />
       <DevelopersSection />
       <CtaSection />
       <SiteFooter />

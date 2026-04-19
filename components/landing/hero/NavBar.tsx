@@ -97,15 +97,9 @@ export function NavBar() {
           ))}
           <a
             href="mailto:support@nedapay.xyz"
-            className="shrink-0 px-3 py-2.5 text-[10px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors border-r border-black/5 dark:border-white/5"
-          >
-            Contact
-          </a>
-          <a
-            href="https://www.washikadau.com" target="_blank" rel="noopener noreferrer"
             className="shrink-0 px-3 py-2.5 text-[10px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
           >
-            WashikaDAU
+            Contact
           </a>
         </div>
       </div>
