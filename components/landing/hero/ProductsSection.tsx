@@ -1,10 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowRight, Code, Network } from 'lucide-react';
+import { ArrowRight, Code } from 'lucide-react';
 import { products, stats } from '@/data/config/heroData';
-
-const productLogos = ['/assets/logos/ntzs.jpg', '/assets/logos/nedapay.jpg', null, null];
 
 export function ProductsSection() {
   return (
@@ -24,8 +22,6 @@ export function ProductsSection() {
         {/* Horizontal scroll cards */}
         <div className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2" style={{ scrollbarWidth: 'none' }}>
           {products.map((product, index) => {
-            const logo = productLogos[index];
-            const IconComponent = index === 2 ? Code : index === 3 ? Network : null;
             return (
               <div key={product.title}
                 className="group relative flex-shrink-0 w-72 border border-black/10 dark:border-white/10 bg-white dark:bg-black p-6 hover:border-black/30 dark:hover:border-white/30 transition-colors">
@@ -33,12 +29,12 @@ export function ProductsSection() {
                 <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/20 dark:border-white/20 group-hover:border-black/50 dark:group-hover:border-white/50 transition-colors pointer-events-none" />
 
                 <div className="mb-4 flex items-center gap-2">
-                  {logo ? (
-                    <Image src={logo} alt={product.title} width={20} height={20}
+                  {product.logo ? (
+                    <Image src={product.logo} alt={product.title} width={20} height={20}
                       className="h-5 w-5 rounded object-cover opacity-70" />
-                  ) : IconComponent ? (
-                    <IconComponent className="h-4 w-4 text-black/50 dark:text-white/50" />
-                  ) : null}
+                  ) : (
+                    <Code className="h-4 w-4 text-black/50 dark:text-white/50" />
+                  )}
                   <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">
                     PRODUCT.{String(index + 1).padStart(2, '0')}
                   </p>

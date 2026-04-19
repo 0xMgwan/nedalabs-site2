@@ -5,17 +5,19 @@ import Image from 'next/image';
 import { ChevronRight, Terminal, Code, Network } from 'lucide-react';
 import { megaMenuLeft, megaMenuRight, megaMenuPromo } from '@/data/config/heroData';
 
-const productLogos = {
+const productLogos: Record<string, string | null> = {
   'BOT-Regulated Stablecoins': '/assets/logos/ntzs.jpg',
   'Instant Payments (NEDApay)': '/assets/logos/nedapay.jpg',
   'Developer APIs': null,
   'WashikaDAU Network': '/assets/logos/jukumu.jpg',
-} as const;
+  'GUAP — Predictions Market': '/assets/logos/guap.png',
+  'PayPerPlay': '/assets/logos/payperplay.png',
+};
 
-const productIcons = {
+const productIcons: Record<string, typeof Code> = {
   'Developer APIs': Code,
   'WashikaDAU Network': Network,
-} as const;
+};
 
 interface MegaMenuProps {
   isOpen: boolean;
@@ -45,7 +47,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
 
   return (
     <div ref={panelRef} role="menu"
-      className="absolute left-0 top-full mt-1 w-[600px] bg-white dark:bg-black border border-black/20 dark:border-white/20 p-5 z-50">
+      className="absolute left-0 top-full mt-1 w-[640px] bg-white dark:bg-black border border-black/20 dark:border-white/20 p-5 z-50">
       {/* Corner accents */}
       <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/40 dark:border-white/40 pointer-events-none" />
       <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-black/40 dark:border-white/40 pointer-events-none" />

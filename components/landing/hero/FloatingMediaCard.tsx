@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Coins, Zap, Code, Network } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Coins, Zap, Code, Network, Trophy, Play } from 'lucide-react';
 
 const slides = [
   {
@@ -38,13 +38,33 @@ const slides = [
   },
   {
     icon: Network,
-    image: '/assets/logos/jukumu.jpg',
     subtitle: 'Regenerative Finance',
     title: 'WashikaDAU',
     description:
       'Empowering sustainable community development through ReFi. Supporting financial inclusion and eco-friendly initiatives across East Africa.',
     cta: 'Join Movement',
     href: 'https://www.washikadau.com',
+    image: '/assets/logos/jukumu.jpg',
+  },
+  {
+    icon: Trophy,
+    subtitle: "Africa's Biggest Predictions Market",
+    title: 'GUAP — Predict. Win. Earn.',
+    description:
+      "Africa's #1 predictions market. Bet on real-world outcomes, compete on leaderboards, and earn with digital assets.",
+    cta: 'Start Predicting',
+    href: 'https://www.guap.gold',
+    image: '/assets/logos/guap.png',
+  },
+  {
+    icon: Play,
+    subtitle: 'Creator Monetization',
+    title: 'PayPerPlay',
+    description:
+      'The platform where creators earn from every play, stream, and download. Instant payouts, powerful analytics, full control.',
+    cta: 'Start Earning',
+    href: 'https://www.payperplay.xyz',
+    image: '/assets/logos/payperplay.png',
   },
 ];
 

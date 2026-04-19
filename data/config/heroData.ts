@@ -41,6 +41,18 @@ export const megaMenuLeft = [
     iconColor: 'green' as const,
     href: 'https://www.washikadau.com',
   },
+  {
+    title: 'GUAP — Predictions Market',
+    subtitle: "Africa's biggest predictions market platform",
+    iconColor: 'yellow' as const,
+    href: 'https://www.guap.gold',
+  },
+  {
+    title: 'PayPerPlay',
+    subtitle: 'Creators monetizing their content with ease',
+    iconColor: 'orange' as const,
+    href: 'https://www.payperplay.xyz',
+  },
 ];
 
 export const megaMenuRight = [
@@ -77,24 +89,42 @@ export const products = [
     description: 'Bank of Tanzania regulated digital currency providing stability and trust for East African markets.',
     features: ['Full regulatory compliance', '1:1 TZS backing', 'Instant settlements', 'Transparent reserves'],
     href: 'https://www.ntzs.co.tz/',
+    logo: '/assets/logos/ntzs.jpg',
   },
   {
     title: 'Instant Payments',
     description: 'Lightning-fast payment infrastructure for businesses and individuals across borders.',
     features: ['Real-time processing', 'Multi-currency support', 'Low transaction fees', '99.99% uptime'],
     href: 'https://www.nedapay.xyz/',
+    logo: '/assets/logos/nedapay.jpg',
   },
   {
     title: 'Developer APIs',
     description: 'Comprehensive API suite for global payouts and financial integrations.',
     features: ['RESTful & GraphQL APIs', 'Comprehensive documentation', 'Sandbox environment', 'Webhook support'],
     href: 'https://nedapayplus.xyz/docs',
+    logo: null,
   },
   {
     title: 'WashikaDAU Network',
     description: 'Regenerative finance platform supporting sustainable community impact and financial inclusion.',
     features: ['Community impact focus', 'Eco-friendly initiatives', 'Financial inclusion', 'Transparent impact tracking'],
     href: 'https://www.washikadau.com',
+    logo: '/assets/logos/jukumu.jpg',
+  },
+  {
+    title: 'GUAP',
+    description: "Africa's biggest predictions market — bet on real-world outcomes with digital assets.",
+    features: ["Africa's #1 predictions market", 'Real-world event outcomes', 'Crypto-powered wagering', 'Live leaderboards'],
+    href: 'https://www.guap.gold',
+    logo: '/assets/logos/guap.png',
+  },
+  {
+    title: 'PayPerPlay',
+    description: 'The creator monetization platform — earn from every play, stream, and download.',
+    features: ['Content monetization', 'Pay-per-stream model', 'Creator analytics', 'Instant payouts'],
+    href: 'https://www.payperplay.xyz',
+    logo: '/assets/logos/payperplay.png',
   },
 ];
 
