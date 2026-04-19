@@ -7,11 +7,11 @@ const featureIcons = [Lock, Zap, Globe, BarChart3, Shield, Headphones];
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
+    <section id="features" className="relative w-full bg-white dark:bg-black py-16 lg:py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-12">
           <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">{"// WHY CHOOSE US"}</p>
-          <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-3">
+          <h2 className="font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl md:text-5xl tracking-tight mb-3">
             BUILT FOR TRUST<br />&amp; PERFORMANCE
           </h2>
           <p className="font-mono text-sm text-black/50 dark:text-white/50 max-w-xl">
@@ -19,7 +19,7 @@ export function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-px md:grid-cols-2 lg:grid-cols-3 bg-black/10 dark:bg-white/10">
+        <div className="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-3 bg-black/10 dark:bg-white/10">
           {features.map((feature, index) => {
             const Icon = featureIcons[index];
             return (

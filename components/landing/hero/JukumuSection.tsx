@@ -12,7 +12,7 @@ const pillars = [
 
 export function JukumuSection() {
   return (
-    <section id="washikadau" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
+    <section id="washikadau" className="relative w-full bg-white dark:bg-black py-16 lg:py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           {/* Left */}
@@ -24,7 +24,7 @@ export function JukumuSection() {
                 <Image src="/assets/logos/jukumu.jpg" alt="WashikaDAU" width={32} height={32}
                   className="h-8 w-8 object-cover opacity-80" />
               </div>
-              <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-4xl tracking-tight">
+              <h2 className="font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl md:text-4xl tracking-tight">
                 WASHIKADAU
               </h2>
             </div>

@@ -5,13 +5,13 @@ import { developerFeatures, codeSnippet } from '@/data/config/heroData';
 
 export function DevelopersSection() {
   return (
-    <section id="developers" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
+    <section id="developers" className="relative w-full bg-white dark:bg-black py-16 lg:py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           {/* Left */}
           <div>
             <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">{"// FOR DEVELOPERS"}</p>
-            <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-4">
+            <h2 className="font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl md:text-5xl tracking-tight mb-4">
               BUILD WITH<br />POWERFUL APIS
             </h2>
             <p className="font-mono text-sm text-black/60 dark:text-white/60 leading-relaxed mb-8">

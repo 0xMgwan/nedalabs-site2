@@ -205,7 +205,7 @@ export function FloatingMediaCard() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center px-6 py-8 text-center sm:px-8 sm:py-10"
+            className="flex flex-col items-center px-10 py-8 text-center sm:px-12 sm:py-10"
           >
             {/* Slide index */}
             <motion.div
@@ -267,7 +267,7 @@ export function FloatingMediaCard() {
               variants={stagger}
               initial="hidden"
               animate="show"
-              className="mb-3 font-mono font-bold text-black dark:text-white text-xl sm:text-2xl tracking-tight"
+              className="mb-3 font-mono font-bold text-black dark:text-white text-lg sm:text-2xl tracking-tight"
             >
               {slide.title}
             </motion.h3>
@@ -278,7 +278,7 @@ export function FloatingMediaCard() {
               variants={stagger}
               initial="hidden"
               animate="show"
-              className="mb-6 max-w-sm font-mono text-sm text-black/60 dark:text-white/60 leading-relaxed"
+              className="mb-6 max-w-sm font-mono text-xs sm:text-sm text-black/60 dark:text-white/60 leading-relaxed"
             >
               {slide.description}
             </motion.p>

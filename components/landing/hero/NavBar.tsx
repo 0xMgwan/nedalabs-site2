@@ -31,7 +31,7 @@ export function NavBar() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <div key={link.label} className="relative">
               {link.hasChevron && link.label === 'Products' ? (
@@ -70,41 +70,48 @@ export function NavBar() {
             <Moon className="h-4 w-4 block dark:hidden" />
           </button>
           <a href="mailto:support@nedapay.xyz"
-            className="hidden sm:inline-flex border border-black/20 dark:border-white/20 px-3.5 py-1.5 text-[10px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all">
+            className="hidden lg:inline-flex border border-black/20 dark:border-white/20 px-3.5 py-1.5 text-[10px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all">
             Contact
           </a>
           <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
-            className="hidden sm:inline-flex border border-black dark:border-white px-3.5 py-1.5 text-[10px] font-mono uppercase tracking-widest text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+            className="hidden lg:inline-flex border border-black dark:border-white px-3.5 py-1.5 text-[10px] font-mono uppercase tracking-widest text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
             Get Started
           </a>
+          {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="inline-flex items-center justify-center p-2 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white md:hidden"
+            className="inline-flex items-center justify-center p-2 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white lg:hidden"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="border-t border-black/10 dark:border-white/10 bg-white dark:bg-black px-6 pb-4 pt-3 md:hidden">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white dark:bg-black border-b border-black/10 dark:border-white/10 px-6 pb-5 pt-3 z-50">
           {navLinks.map((link) => (
-            <a key={link.label} href={link.href}
+            <a
+              key={link.label}
+              href={link.href}
               target={link.href.startsWith('http') ? '_blank' : undefined}
               rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="flex items-center py-2.5 text-[11px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors border-b border-black/5 dark:border-white/5">
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center py-3 text-[11px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors border-b border-black/5 dark:border-white/5"
+            >
               {link.label}
             </a>
           ))}
-          <div className="mt-3 flex flex-col gap-2">
+          <div className="mt-4 flex flex-col gap-2">
             <a href="mailto:support@nedapay.xyz"
-              className="border border-black/20 dark:border-white/20 px-4 py-2.5 text-center text-[10px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60">
+              onClick={() => setMobileMenuOpen(false)}
+              className="border border-black/20 dark:border-white/20 px-4 py-3 text-center text-[10px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all">
               Contact
             </a>
             <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
-              className="border border-black dark:border-white px-4 py-2.5 text-center text-[10px] font-mono uppercase tracking-widest text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+              onClick={() => setMobileMenuOpen(false)}
+              className="border border-black dark:border-white px-4 py-3 text-center text-[10px] font-mono uppercase tracking-widest text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
               Get Started
             </a>
           </div>

@@ -4,7 +4,7 @@ import { ArrowRight, Mail } from 'lucide-react';
 
 export function CtaSection() {
   return (
-    <section id="get-started" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
+    <section id="get-started" className="relative w-full bg-white dark:bg-black py-16 lg:py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
 
         {/* Top decoration */}
@@ -16,8 +16,8 @@ export function CtaSection() {
 
         <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-4">{"// GET STARTED"}</p>
 
-        <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-4">
-          READY TO TRANSFORM YOUR<br />FINANCIAL OPERATIONS?
+        <h2 className="font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl md:text-5xl tracking-tight mb-4">
+          READY TO TRANSFORM YOUR<br className="hidden sm:block" /> FINANCIAL OPERATIONS?
         </h2>
 
         <p className="font-mono text-sm text-black/60 dark:text-white/60 mb-2">

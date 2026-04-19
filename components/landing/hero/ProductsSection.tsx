@@ -1,12 +1,13 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import { ArrowRight, Code } from 'lucide-react';
 import { products, stats } from '@/data/config/heroData';
 
 export function ProductsSection() {
   return (
-    <section id="products" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
+    <section id="products" className="relative w-full bg-white dark:bg-black py-16 lg:py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-12">
@@ -20,11 +21,14 @@ export function ProductsSection() {
         </div>
 
         {/* Horizontal scroll cards */}
-        <div className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2" style={{ scrollbarWidth: 'none' }}>
+        <div
+          className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2 snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
+        >
           {products.map((product, index) => {
             return (
               <div key={product.title}
-                className="group relative flex-shrink-0 w-72 border border-black/10 dark:border-white/10 bg-white dark:bg-black p-6 hover:border-black/30 dark:hover:border-white/30 transition-colors">
+                className="group relative flex-shrink-0 w-72 min-w-[280px] snap-start border border-black/10 dark:border-white/10 bg-white dark:bg-black p-6 hover:border-black/30 dark:hover:border-white/30 transition-colors">
                 {/* Corner accent */}
                 <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/20 dark:border-white/20 group-hover:border-black/50 dark:group-hover:border-white/50 transition-colors pointer-events-none" />
 

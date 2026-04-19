@@ -4,9 +4,9 @@ export function SiteFooter() {
   return (
     <footer className="w-full bg-white dark:bg-black border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {/* Brand */}
-          <div className="md:col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <div className="mb-3">
               <span className="font-mono text-lg font-bold tracking-widest text-black dark:text-white">
                 NEDA<span className="font-light opacity-40"> LABS</span>
@@ -71,7 +71,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-black/10 dark:border-white/10 flex items-center justify-between">
+        <div className="mt-10 pt-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="font-mono text-[9px] text-black/20 dark:text-white/20 uppercase tracking-widest">
             &copy; {new Date().getFullYear()} NEDA LABS. ALL RIGHTS RESERVED.
           </span>

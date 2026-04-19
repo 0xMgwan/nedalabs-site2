@@ -47,14 +47,14 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
 
   return (
     <div ref={panelRef} role="menu"
-      className="absolute left-0 top-full mt-1 w-[640px] bg-white dark:bg-black border border-black/20 dark:border-white/20 p-5 z-50">
+      className="absolute left-0 top-full mt-1 w-screen max-w-[640px] bg-white dark:bg-black border border-black/20 dark:border-white/20 p-5 z-50 lg:w-[640px]">
       {/* Corner accents */}
       <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/40 dark:border-white/40 pointer-events-none" />
       <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-black/40 dark:border-white/40 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-black/40 dark:border-white/40 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-black/40 dark:border-white/40 pointer-events-none" />
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {/* Left column */}
         <div className="flex flex-col gap-0.5">
           <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/30 dark:text-white/30 mb-2 px-2">{"// PRODUCTS"}</p>
@@ -97,7 +97,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
         </div>
 
         {/* Right column */}
-        <div className="flex flex-col gap-0.5 border-l border-black/10 dark:border-white/10 pl-4">
+        <div className="flex flex-col gap-0.5 sm:border-l sm:border-black/10 sm:dark:border-white/10 sm:pl-4 border-t border-black/10 dark:border-white/10 pt-4 sm:border-t-0 sm:pt-0">
           <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/30 dark:text-white/30 mb-2 px-2">{"// SOLUTIONS"}</p>
           {megaMenuRight.map((item) => (
             <a key={item.title} href="#"

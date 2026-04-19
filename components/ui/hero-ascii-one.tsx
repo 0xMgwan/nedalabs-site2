@@ -95,9 +95,9 @@ export function HeroAsciiOne() {
 
       {/* Two-column content area */}
       <div className="relative z-10 flex items-center" style={{ minHeight: 'calc(100vh - 3.5rem)' }}>
-        <div className="w-full lg:grid lg:grid-cols-2">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2">
 
-          {/* Left column: FloatingMediaCard carousel */}
+          {/* Left column: FloatingMediaCard carousel — hidden on mobile (shown below) */}
           <div className="hidden lg:flex items-center justify-center px-8 lg:px-16 py-16">
             <div className="w-full max-w-lg">
               <FloatingMediaCard />
@@ -105,8 +105,8 @@ export function HeroAsciiOne() {
           </div>
 
           {/* Right column: NEDA branding content */}
-          <div className="w-full px-8 lg:px-16 py-16 lg:py-0 flex items-center justify-center lg:justify-start">
-            <div className="max-w-lg mx-auto lg:mx-0">
+          <div className="w-full px-6 sm:px-8 lg:px-16 py-12 lg:py-0 flex items-center justify-center lg:justify-start">
+            <div className="max-w-lg mx-auto lg:mx-0 w-full">
 
               {/* Top decorative line */}
               <div className="flex items-center gap-2 mb-4 opacity-40">
@@ -125,7 +125,7 @@ export function HeroAsciiOne() {
               </div>
 
               {/* Title */}
-              <h1 className="font-mono font-bold text-black dark:text-white text-3xl lg:text-5xl leading-tight tracking-tight mb-4">
+              <h1 className="font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl lg:text-5xl leading-tight tracking-tight mb-4">
                 BUILDING THE<br />FUTURE OF<br />FINANCE IN AFRICA
               </h1>
 
@@ -179,7 +179,7 @@ export function HeroAsciiOne() {
       </div>
 
       {/* Mobile: FloatingMediaCard below the text content */}
-      <div className="relative z-10 lg:hidden pb-16 px-4">
+      <div className="relative z-10 lg:hidden pb-16 px-6 sm:px-8">
         <FloatingMediaCard />
       </div>
 
