@@ -14,7 +14,7 @@ export function CtaSection() {
           <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
         </div>
 
-        <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-4">// GET STARTED</p>
+        <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-4">{"// GET STARTED"}</p>
 
         <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-4">
           READY TO TRANSFORM YOUR<br />FINANCIAL OPERATIONS?

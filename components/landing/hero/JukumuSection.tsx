@@ -17,7 +17,7 @@ export function JukumuSection() {
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">// REGENERATIVE FINANCE</p>
+            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">{"// REGENERATIVE FINANCE"}</p>
 
             <div className="flex items-center gap-3 mb-4">
               <div className="border border-black/20 dark:border-white/20 p-1">

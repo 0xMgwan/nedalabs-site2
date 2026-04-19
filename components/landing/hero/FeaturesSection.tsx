@@ -10,7 +10,7 @@ export function FeaturesSection() {
     <section id="features" className="relative w-full bg-white dark:bg-black py-24 border-t border-black/10 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-12">
-          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">// WHY CHOOSE US</p>
+          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">{"// WHY CHOOSE US"}</p>
           <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-3">
             BUILT FOR TRUST<br />&amp; PERFORMANCE
           </h2>

@@ -10,7 +10,7 @@ export function DevelopersSection() {
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           {/* Left */}
           <div>
-            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">// FOR DEVELOPERS</p>
+            <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">{"// FOR DEVELOPERS"}</p>
             <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-4">
               BUILD WITH<br />POWERFUL APIS
             </h2>

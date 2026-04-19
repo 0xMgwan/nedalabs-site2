@@ -57,7 +57,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
       <div className="grid grid-cols-2 gap-4">
         {/* Left column */}
         <div className="flex flex-col gap-0.5">
-          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/30 dark:text-white/30 mb-2 px-2">// PRODUCTS</p>
+          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/30 dark:text-white/30 mb-2 px-2">{"// PRODUCTS"}</p>
           {megaMenuLeft.map((item) => {
             const logo = productLogos[item.title as keyof typeof productLogos];
             const IconComponent = productIcons[item.title as keyof typeof productIcons];
@@ -98,7 +98,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
 
         {/* Right column */}
         <div className="flex flex-col gap-0.5 border-l border-black/10 dark:border-white/10 pl-4">
-          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/30 dark:text-white/30 mb-2 px-2">// SOLUTIONS</p>
+          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/30 dark:text-white/30 mb-2 px-2">{"// SOLUTIONS"}</p>
           {megaMenuRight.map((item) => (
             <a key={item.title} href="#"
               className="group p-2 hover:bg-black/5 dark:hover:bg-white/5 transition-colors border border-transparent hover:border-black/10 dark:hover:border-white/10">

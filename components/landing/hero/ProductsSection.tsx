@@ -10,7 +10,7 @@ export function ProductsSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Header */}
         <div className="mb-12">
-          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">// OUR PRODUCTS</p>
+          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">{"// OUR PRODUCTS"}</p>
           <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-3">
             BUILDING THE FUTURE<br />OF FINANCE
           </h2>

@@ -19,7 +19,7 @@ export function SiteFooter() {
 
           {/* Products */}
           <div>
-            <h4 className="mb-3 text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">// Products</h4>
+            <h4 className="mb-3 text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">{"// Products"}</h4>
             <ul className="space-y-2">
               {[
                 { label: 'nTZS Stablecoin', href: 'https://www.ntzs.co.tz/' },
@@ -39,7 +39,7 @@ export function SiteFooter() {
 
           {/* Company */}
           <div>
-            <h4 className="mb-3 text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">// Company</h4>
+            <h4 className="mb-3 text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">{"// Company"}</h4>
             <ul className="space-y-2">
               {['About Us', 'Careers', 'Blog', 'Press'].map((item) => (
                 <li key={item}>
@@ -53,7 +53,7 @@ export function SiteFooter() {
 
           {/* Contact */}
           <div>
-            <h4 className="mb-3 text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">// Contact</h4>
+            <h4 className="mb-3 text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">{"// Contact"}</h4>
             <ul className="space-y-2">
               {[
                 { label: 'support@nedapay.xyz', href: 'mailto:support@nedapay.xyz' },
