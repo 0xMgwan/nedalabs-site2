@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Coins, Zap, Code, Network } from 'lucide-react';
@@ -48,66 +48,80 @@ const slides = [
   },
 ];
 
-const DURATION = 5000;
+const DURATION = 4000;
+const RESUME_DELAY = 3000;
 
 const slideVariants = {
-  enter: (direction: number) => ({
-    x: direction > 0 ? 80 : -80,
+  enter: (dir: number) => ({
+    y: dir > 0 ? 40 : -40,
     opacity: 0,
-    scale: 0.96,
+    filter: 'blur(4px)',
   }),
   center: {
-    x: 0,
+    y: 0,
     opacity: 1,
-    scale: 1,
+    filter: 'blur(0px)',
   },
-  exit: (direction: number) => ({
-    x: direction > 0 ? -80 : 80,
+  exit: (dir: number) => ({
+    y: dir > 0 ? -40 : 40,
     opacity: 0,
-    scale: 0.96,
+    filter: 'blur(4px)',
   }),
 };
 
-const childStagger = {
-  hidden: { opacity: 0, y: 16 },
-  show: {
+const stagger = {
+  hidden: { opacity: 0, y: 12 },
+  show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: 'easeOut' as const },
-  },
+    transition: { duration: 0.35, ease: 'easeOut' as const, delay: i * 0.07 },
+  }),
 };
 
 export function FloatingMediaCard() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [isAuto, setIsAuto] = useState(true);
+  const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(0);
+  const resumeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const resumeAuto = useCallback(() => {
+    if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    resumeTimer.current = setTimeout(() => setPaused(false), RESUME_DELAY);
+  }, []);
+
+  const next = useCallback(() => {
+    setDirection(1);
+    setCurrent((prev) => (prev + 1) % slides.length);
+    setProgress(0);
+    setPaused(true);
+    resumeAuto();
+  }, [resumeAuto]);
+
+  const prev = useCallback(() => {
+    setDirection(-1);
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+    setProgress(0);
+    setPaused(true);
+    resumeAuto();
+  }, [resumeAuto]);
 
   const goto = useCallback(
     (index: number) => {
       setDirection(index > current ? 1 : -1);
       setCurrent(index);
+      setProgress(0);
+      setPaused(true);
+      resumeAuto();
     },
-    [current],
+    [current, resumeAuto],
   );
 
-  const next = useCallback(() => {
-    setDirection(1);
-    setCurrent((prev) => (prev + 1) % slides.length);
-    setIsAuto(false);
-    setProgress(0);
-  }, []);
-
-  const prev = useCallback(() => {
-    setDirection(-1);
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-    setIsAuto(false);
-    setProgress(0);
-  }, []);
-
+  // Auto-scroll loop
   useEffect(() => {
-    if (!isAuto) return;
+    if (paused) return;
     const start = Date.now();
+    let frame: number;
     const tick = () => {
       const elapsed = Date.now() - start;
       const pct = Math.min(elapsed / DURATION, 1);
@@ -120,30 +134,47 @@ export function FloatingMediaCard() {
         frame = requestAnimationFrame(tick);
       }
     };
-    let frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [isAuto, current]);
+    frame = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(frame);
+    };
+  }, [paused, current]);
+
+  // Cleanup resume timer on unmount
+  useEffect(() => {
+    return () => {
+      if (resumeTimer.current) clearTimeout(resumeTimer.current);
+    };
+  }, []);
 
   const slide = slides[current];
   const Icon = slide.icon;
 
   return (
-    <div className="relative z-[3] mx-auto w-full max-w-4xl px-6 lg:px-10">
+    <div className="relative z-[3] w-full">
+      {/* Animated scan line */}
       <motion.div
-        key={`glow-${current}`}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 0.6, scale: 1 }}
-        transition={{ duration: 0.8 }}
-        className="pointer-events-none absolute -inset-8 bg-black/5 dark:bg-white/5 blur-3xl"
+        className="pointer-events-none absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-black/20 dark:via-white/20 to-transparent z-20"
+        animate={{ top: ['0%', '100%'] }}
+        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
         aria-hidden="true"
       />
 
       <div className="relative overflow-hidden border border-black/20 dark:border-white/20 bg-white dark:bg-black">
         {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-black/40 dark:border-white/40 z-10 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-black/40 dark:border-white/40 z-10 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black/40 dark:border-white/40 z-10 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/40 dark:border-white/40 z-10 pointer-events-none" />
+        <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
+
+        {/* Top progress bar */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-black/10 dark:bg-white/10 z-10">
+          <motion.div
+            className="h-full bg-black dark:bg-white origin-left"
+            style={{ scaleX: progress }}
+            transition={{ duration: 0 }}
+          />
+        </div>
 
         <AnimatePresence custom={direction} mode="wait">
           <motion.div
@@ -153,16 +184,35 @@ export function FloatingMediaCard() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col items-center px-6 py-8 text-center sm:px-8 sm:py-10 lg:px-10"
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center px-6 py-8 text-center sm:px-8 sm:py-10"
           >
-            {/* Logo / Icon */}
+            {/* Slide index */}
             <motion.div
-              variants={childStagger}
+              custom={0}
+              variants={stagger}
               initial="hidden"
               animate="show"
-              className="mb-5"
+              className="mb-4 self-stretch flex items-center gap-2"
             >
+              <span className="text-[9px] font-mono text-black/30 dark:text-white/30 tracking-widest">
+                {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+              </span>
+              <div className="flex-1 h-px bg-black/10 dark:bg-white/10" />
+              <span className="text-[9px] font-mono text-black/30 dark:text-white/30 uppercase tracking-widest">
+                {paused ? 'PAUSED' : 'LIVE'}
+              </span>
+              {!paused && (
+                <motion.div
+                  className="w-1.5 h-1.5 rounded-full bg-black/60 dark:bg-white/60"
+                  animate={{ opacity: [1, 0.2, 1] }}
+                  transition={{ duration: 1, repeat: Infinity }}
+                />
+              )}
+            </motion.div>
+
+            {/* Logo / Icon */}
+            <motion.div custom={1} variants={stagger} initial="hidden" animate="show" className="mb-5">
               {slide.image ? (
                 <div className="border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 inline-block">
                   <Image
@@ -180,9 +230,10 @@ export function FloatingMediaCard() {
               )}
             </motion.div>
 
-            {/* Subtitle pill */}
+            {/* Subtitle */}
             <motion.span
-              variants={childStagger}
+              custom={2}
+              variants={stagger}
               initial="hidden"
               animate="show"
               className="mb-3 inline-block border border-black/20 dark:border-white/20 px-3 py-1 text-[9px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50"
@@ -192,27 +243,30 @@ export function FloatingMediaCard() {
 
             {/* Title */}
             <motion.h3
-              variants={childStagger}
+              custom={3}
+              variants={stagger}
               initial="hidden"
               animate="show"
-              className="mb-3 font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl tracking-tight"
+              className="mb-3 font-mono font-bold text-black dark:text-white text-xl sm:text-2xl tracking-tight"
             >
               {slide.title}
             </motion.h3>
 
             {/* Description */}
             <motion.p
-              variants={childStagger}
+              custom={4}
+              variants={stagger}
               initial="hidden"
               animate="show"
-              className="mb-6 max-w-lg font-mono text-sm text-black/60 dark:text-white/60 leading-relaxed"
+              className="mb-6 max-w-sm font-mono text-sm text-black/60 dark:text-white/60 leading-relaxed"
             >
               {slide.description}
             </motion.p>
 
             {/* CTA buttons */}
             <motion.div
-              variants={childStagger}
+              custom={5}
+              variants={stagger}
               initial="hidden"
               animate="show"
               className="flex flex-col items-center gap-3 sm:flex-row"
@@ -239,52 +293,44 @@ export function FloatingMediaCard() {
         {/* Navigation arrows */}
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
+          className="absolute left-3 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
+          className="absolute right-3 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
           aria-label="Next slide"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
       </div>
 
-      {/* Progress indicators */}
-      <div className="mt-6 flex items-center justify-center gap-2">
+      {/* Dot indicators */}
+      <div className="mt-4 flex items-center justify-center gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => {
-              goto(index);
-              setIsAuto(false);
-              setProgress(0);
-            }}
-            className="group relative h-1.5 overflow-hidden transition-all"
-            style={{ width: index === current ? 40 : 12 }}
+            onClick={() => goto(index)}
+            className="group relative h-1 overflow-hidden transition-all duration-300"
+            style={{ width: index === current ? 32 : 10 }}
             aria-label={`Go to slide ${index + 1}`}
           >
-            {/* Track */}
             <span
-              className={`absolute inset-0 transition-colors ${
+              className={`absolute inset-0 ${
                 index === current
-                  ? 'bg-black/20 dark:bg-white/20'
+                  ? 'bg-black/30 dark:bg-white/30'
                   : 'bg-black/10 dark:bg-white/10 group-hover:bg-black/20 dark:group-hover:bg-white/20'
               }`}
             />
-            {/* Fill */}
             {index === current && (
               <motion.span
                 className="absolute inset-y-0 left-0 bg-black dark:bg-white"
                 style={{ width: `${progress * 100}%` }}
               />
             )}
-            {index < current && (
-              <span className="absolute inset-0 bg-black/50 dark:bg-white/50" />
-            )}
+            {index < current && <span className="absolute inset-0 bg-black/50 dark:bg-white/50" />}
           </button>
         ))}
       </div>
