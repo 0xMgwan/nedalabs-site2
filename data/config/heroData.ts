@@ -128,9 +128,9 @@ export const products = [
 ];
 
 export const stats = [
-  { value: '50K+', label: 'Active Users' },
+  { value: '1K+', label: 'Active Users' },
   { value: '15+', label: 'Countries' },
-  { value: '$100M+', label: 'Transaction Volume' },
+  { value: '$1M+', label: 'Transaction Volume' },
   { value: '100%', label: 'Secure & Compliant' },
 ];
 

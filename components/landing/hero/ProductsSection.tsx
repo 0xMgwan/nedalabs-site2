@@ -20,15 +20,15 @@ export function ProductsSection() {
           </p>
         </div>
 
-        {/* Horizontal scroll cards */}
+        {/* Cards — horizontal scroll on mobile, 3-col grid on desktop */}
         <div
-          className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2 snap-x snap-mandatory"
+          className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-x-visible lg:pb-0 lg:mx-0 lg:px-0"
           style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
         >
           {products.map((product, index) => {
             return (
               <div key={product.title}
-                className="group relative flex-shrink-0 w-72 min-w-[280px] snap-start border border-black/10 dark:border-white/10 bg-white dark:bg-black p-6 hover:border-black/30 dark:hover:border-white/30 transition-colors">
+                className="group relative flex-shrink-0 w-72 min-w-[280px] snap-start lg:w-auto lg:min-w-0 border border-black/10 dark:border-white/10 bg-white dark:bg-black p-6 hover:border-black/30 dark:hover:border-white/30 transition-colors">
                 {/* Corner accent */}
                 <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/20 dark:border-white/20 group-hover:border-black/50 dark:group-hover:border-white/50 transition-colors pointer-events-none" />
 
