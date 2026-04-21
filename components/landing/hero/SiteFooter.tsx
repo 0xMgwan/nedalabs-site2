@@ -24,7 +24,7 @@ export function SiteFooter() {
               {[
                 { label: 'nTZS Stablecoin', href: 'https://www.ntzs.co.tz/' },
                 { label: 'NEDApay', href: 'https://www.nedapay.xyz/' },
-                { label: 'Developer APIs', href: 'https://nedapayplus.xyz/docs' },
+                { label: 'Developer APIs', href: 'https://www.ntzs.co.tz/developers' },
                 { label: 'WashikaDAU', href: 'https://www.washikadau.com' },
               ].map((item) => (
                 <li key={item.label}>

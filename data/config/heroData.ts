@@ -32,7 +32,7 @@ export const megaMenuLeft = [
     title: 'Developer APIs',
     subtitle: 'Comprehensive API suite for global payouts',
     iconColor: 'yellow' as const,
-    href: 'https://nedapayplus.xyz/docs',
+    href: 'https://www.ntzs.co.tz/developers',
   },
   {
     title: 'WashikaDAU Network',
@@ -107,7 +107,7 @@ export const products = [
     title: 'Developer APIs',
     description: 'Comprehensive API suite for global payouts and financial integrations.',
     features: ['RESTful & GraphQL APIs', 'Comprehensive documentation', 'Sandbox environment', 'Webhook support'],
-    href: 'https://nedapayplus.xyz/docs',
+    href: 'https://www.ntzs.co.tz/developers',
     logo: null,
   },
   {

@@ -28,7 +28,7 @@ export function DevelopersSection() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <a href="https://nedapayplus.xyz/docs" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.ntzs.co.tz/developers" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-black dark:border-white font-mono text-xs uppercase tracking-widest px-5 py-2.5 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
                 <BookOpen className="h-3.5 w-3.5" /> VIEW DOCS
               </a>

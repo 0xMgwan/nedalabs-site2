@@ -159,7 +159,7 @@ export function HeroAsciiOne() {
                   <span className="absolute -bottom-px -right-px w-2 h-2 border-b border-r border-black dark:border-white opacity-0 group-hover:opacity-100 transition-opacity" />
                   GET STARTED
                 </a>
-                <a href="https://nedapayplus.xyz/docs" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.ntzs.co.tz/developers" target="_blank" rel="noopener noreferrer"
                   className="border border-black/20 dark:border-white/20 font-mono text-xs uppercase tracking-widest px-6 py-3 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all duration-200 text-center">
                   VIEW DOCUMENTATION
                 </a>

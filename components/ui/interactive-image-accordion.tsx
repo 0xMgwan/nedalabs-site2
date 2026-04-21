@@ -23,7 +23,7 @@ const accordionItems = [
     id: 3,
     title: 'Developer APIs',
     imageUrl: '',
-    href: 'https://nedapayplus.xyz/docs',
+    href: 'https://www.ntzs.co.tz/developers',
     isCode: true,
   },
   {

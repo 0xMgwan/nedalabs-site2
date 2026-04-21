@@ -83,7 +83,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           })}
 
           {/* Promo */}
-          <a href="https://nedapayplus.xyz/docs" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.ntzs.co.tz/developers" target="_blank" rel="noopener noreferrer"
             className="mt-2 flex items-center gap-2 border border-black/10 dark:border-white/10 p-2.5 hover:border-black/30 dark:hover:border-white/30 transition-colors group">
             <div className="flex h-8 w-8 shrink-0 items-center justify-center border border-black/20 dark:border-white/20 group-hover:border-black/40 dark:group-hover:border-white/40">
               <Terminal className="h-3.5 w-3.5 text-black/50 dark:text-white/50 group-hover:text-black dark:group-hover:text-white" />

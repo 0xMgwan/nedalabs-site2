@@ -33,7 +33,7 @@ const slides = [
     description:
       'Integrate global payout infrastructure into your application. Comprehensive documentation, SDKs, and support for developers.',
     cta: 'View Docs',
-    href: 'https://nedapayplus.xyz/docs',
+    href: 'https://www.ntzs.co.tz/developers',
     image: null,
   },
   {
