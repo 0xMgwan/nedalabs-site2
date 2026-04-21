@@ -14,3 +14,4 @@ export { JukumuSection } from './JukumuSection';
 export { DevelopersSection } from './DevelopersSection';
 export { CtaSection } from './CtaSection';
 export { SiteFooter } from './SiteFooter';
+export { SimpleFXSection } from './SimpleFXSection';

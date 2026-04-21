@@ -52,6 +52,12 @@ export const megaMenuLeft = [
     iconColor: 'orange' as const,
     href: 'https://www.payperplay.xyz',
   },
+  {
+    title: 'SimpleFX',
+    subtitle: 'Automated market making — earn fees on every swap',
+    iconColor: 'blue' as const,
+    href: 'https://www.ntzs.co.tz/simplefx',
+  },
 ];
 
 export const megaMenuRight = [
@@ -124,6 +130,13 @@ export const products = [
     features: ['Content monetization', 'Pay-per-stream model', 'Creator analytics', 'Instant payouts'],
     href: 'https://www.payperplay.xyz',
     logo: '/assets/logos/payperplay.png',
+  },
+  {
+    title: 'SimpleFX',
+    description: 'Automated market making for nTZS liquidity. Deposit, set your spread, and collect fees on every swap — around the clock.',
+    features: ['Deposit nTZS to earn', 'Set your own spread', 'Fees on every swap', 'No trading desk needed'],
+    href: 'https://www.ntzs.co.tz/simplefx',
+    logo: '/assets/logos/simplefx.svg',
   },
 ];
 

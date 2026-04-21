@@ -2,6 +2,7 @@ import {
   NavBar,
   ProductsSection,
   FeaturesSection,
+  SimpleFXSection,
   DevelopersSection,
   CtaSection,
   SiteFooter,
@@ -16,6 +17,7 @@ export default function Page() {
 
       <ProductsSection />
       <FeaturesSection />
+      <SimpleFXSection />
       <DevelopersSection />
       <CtaSection />
       <SiteFooter />

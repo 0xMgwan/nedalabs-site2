@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Coins, Zap, Code, Network, Trophy, Play } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Coins, Zap, Code, Network, Trophy, Play, TrendingUp } from 'lucide-react';
 
 const slides = [
   {
@@ -65,6 +65,16 @@ const slides = [
     cta: 'Start Earning',
     href: 'https://www.payperplay.xyz',
     image: '/assets/logos/payperplay.png',
+  },
+  {
+    icon: TrendingUp,
+    subtitle: 'Automated Market Making',
+    title: 'SimpleFX — Earn While You Sleep',
+    description:
+      'Deposit nTZS, set your spread, and collect fees on every swap — automatically, around the clock. No trading desk. No effort.',
+    cta: 'Start Earning',
+    href: 'https://www.ntzs.co.tz/simplefx',
+    image: '/assets/logos/simplefx.svg',
   },
 ];
 
