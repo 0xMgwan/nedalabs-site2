@@ -7,7 +7,7 @@ const metadata = {
   businessName: 'NEDA LABS',
   siteUrl: 'https://nedalabs-site2.vercel.app',
   siteRepo: 'https://github.com/0xMgwan/nedalabs-site2',
-  socialBanner: '/api/og?v=' + Date.now(),
+  socialBanner: '/api/og',
   supportEmail: 'support@nedalabs.com',
   email: 'hello@nedalabs.com',
   twitter: '',
