@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { FloatingMediaCard } from '@/components/landing/hero/FloatingMediaCard';
+import { LiveNTZSStat } from '@/components/ui/LiveNTZSStat';
 
 export function HeroAsciiOne() {
   useEffect(() => {
@@ -143,12 +144,13 @@ export function HeroAsciiOne() {
 
               {/* Stats row */}
               <div className="flex gap-8 mb-7">
-                {[['1K+', 'ACTIVE USERS'], ['15+', 'COUNTRIES'], ['$1M+', 'VOLUME']].map(([val, lbl]) => (
+                {[['1K+', 'ACTIVE USERS'], ['15+', 'COUNTRIES']].map(([val, lbl]) => (
                   <div key={lbl} className="flex flex-col gap-0.5">
                     <span className="font-mono font-bold text-black dark:text-white text-lg">{val}</span>
                     <span className="font-mono text-[9px] text-black/40 dark:text-white/40 tracking-widest">{lbl}</span>
                   </div>
                 ))}
+                <LiveNTZSStat />
               </div>
 
               {/* Buttons */}

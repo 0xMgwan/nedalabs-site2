@@ -256,8 +256,13 @@ module.exports = {
             transform: 'translateX(-50%)',
           },
         },
+        'stat-pop': {
+          '0%': { opacity: '0.4', transform: 'translateY(4px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
+        'stat-pop': 'stat-pop 0.4s ease-out forwards',
         tilt: 'tilt 10s linear infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
