@@ -150,7 +150,14 @@ export function HeroAsciiOne() {
                     <span className="font-mono text-[9px] text-black/40 dark:text-white/40 tracking-widest">{lbl}</span>
                   </div>
                 ))}
-                <LiveNTZSStat />
+                <a
+                  href="https://basescan.org/token/0xF476BA983DE2F1AD532380630e2CF1D1b8b10688"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link"
+                >
+                  <LiveNTZSStat />
+                </a>
               </div>
 
               {/* Buttons */}
