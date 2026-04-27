@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { ArrowRight, Code } from 'lucide-react';
 import { products, stats } from '@/data/config/heroData';
+import { LiveNTZSStat } from '@/components/ui/LiveNTZSStat';
 
 export function ProductsSection() {
   return (
@@ -75,11 +76,29 @@ export function ProductsSection() {
         {/* Stats bar */}
         <div className="mt-8 border border-black/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4">
           {stats.map((stat, i) => (
-            <div key={stat.label}
-              className={`px-6 py-5 text-center ${i < stats.length - 1 ? 'border-r border-black/10 dark:border-white/10' : ''}`}>
-              <div className="font-mono font-bold text-black dark:text-white text-2xl mb-1">{stat.value}</div>
-              <div className="text-[9px] font-mono uppercase tracking-widest text-black/40 dark:text-white/40">{stat.label}</div>
-            </div>
+            <a
+              key={stat.label}
+              href={stat.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group px-6 py-5 text-center relative hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors cursor-pointer ${i < stats.length - 1 ? 'border-r border-black/10 dark:border-white/10' : ''}`}
+            >
+              {/* Corner accent on hover */}
+              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-transparent group-hover:border-black/30 dark:group-hover:border-white/30 transition-colors pointer-events-none" />
+              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-transparent group-hover:border-black/30 dark:group-hover:border-white/30 transition-colors pointer-events-none" />
+
+              {stat.live ? (
+                /* Live on-chain stat */
+                <div className="flex flex-col items-center">
+                  <LiveNTZSStat size="lg" />
+                </div>
+              ) : (
+                <>
+                  <div className="font-mono font-bold text-black dark:text-white text-2xl mb-1">{stat.value}</div>
+                  <div className="text-[9px] font-mono uppercase tracking-widest text-black/40 dark:text-white/40">{stat.label}</div>
+                </>
+              )}
+            </a>
           ))}
         </div>
       </div>

@@ -141,10 +141,10 @@ export const products = [
 ];
 
 export const stats = [
-  { value: '1K+', label: 'Active Users' },
-  { value: '15+', label: 'Countries' },
-  { value: '$1M+', label: 'Transaction Volume' },
-  { value: '100%', label: 'Secure & Compliant' },
+  { value: '1K+', label: 'Active Users', href: 'https://www.nedapay.xyz/' },
+  { value: '15+', label: 'Countries', href: 'https://www.nedapay.xyz/' },
+  { value: null, label: 'nTZS Supply', href: 'https://basescan.org/token/0xF476BA983DE2F1AD532380630e2CF1D1b8b10688', live: true },
+  { value: '100%', label: 'Secure & Compliant', href: 'https://www.ntzs.co.tz/' },
 ];
 
 export const features = [

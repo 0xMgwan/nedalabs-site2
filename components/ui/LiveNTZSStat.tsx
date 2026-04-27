@@ -8,10 +8,15 @@ function formatSupply(n: number): string {
   return n.toLocaleString();
 }
 
-export function LiveNTZSStat() {
+interface LiveNTZSStatProps {
+  /** 'sm' = hero inline stat (default), 'lg' = stats bar large */
+  size?: 'sm' | 'lg';
+}
+
+export function LiveNTZSStat({ size = 'sm' }: LiveNTZSStatProps) {
   const [supply, setSupply] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
-  const [tick, setTick] = useState(false); // flash on update
+  const [tick, setTick] = useState(false);
 
   const fetchSupply = async () => {
     try {
@@ -19,10 +24,10 @@ export function LiveNTZSStat() {
       const data = await res.json();
       if (typeof data.supply === 'number') {
         setSupply(data.supply);
-        setTick((t) => !t); // trigger flash
+        setTick((t) => !t);
       }
     } catch {
-      // silently fail — keep last value
+      // silently fail
     } finally {
       setLoading(false);
     }
@@ -30,33 +35,33 @@ export function LiveNTZSStat() {
 
   useEffect(() => {
     fetchSupply();
-    const interval = setInterval(fetchSupply, 60_000); // refresh every 60s
+    const interval = setInterval(fetchSupply, 60_000);
     return () => clearInterval(interval);
   }, []);
 
+  const isLg = size === 'lg';
+
   return (
-    <div className="flex flex-col gap-0.5 group relative">
-      {/* Live value */}
+    <div className="flex flex-col gap-0.5 group/stat relative items-center">
+      {/* Value */}
       <span
-        key={String(tick)} // re-mount triggers CSS animation
-        className="font-mono font-bold text-black dark:text-white text-lg animate-stat-pop"
+        key={String(tick)}
+        className={`font-mono font-bold text-black dark:text-white animate-stat-pop ${isLg ? 'text-2xl mb-1' : 'text-lg'}`}
       >
         {loading ? (
-          <span className="opacity-30 animate-pulse">···</span>
+          <span className="opacity-30 animate-pulse">{isLg ? '···' : '···'}</span>
         ) : supply !== null ? (
           formatSupply(supply)
         ) : (
-          '$1M+'
+          '—'
         )}
       </span>
 
-      {/* Label row */}
-      <div className="flex items-center gap-1.5">
-        <span className="font-mono text-[9px] text-black/40 dark:text-white/40 tracking-widest uppercase">
+      {/* Label + LIVE badge */}
+      <div className={`flex items-center justify-center gap-1.5 ${isLg ? '' : ''}`}>
+        <span className={`font-mono uppercase tracking-widest text-black/40 dark:text-white/40 ${isLg ? 'text-[9px]' : 'text-[9px]'}`}>
           nTZS SUPPLY
         </span>
-
-        {/* Live indicator — only when data loaded */}
         {!loading && supply !== null && (
           <span className="flex items-center gap-1 border border-black/10 dark:border-white/10 px-1 py-px">
             <span className="w-1 h-1 rounded-full bg-black/60 dark:bg-white/60 animate-pulse" />
@@ -65,8 +70,8 @@ export function LiveNTZSStat() {
         )}
       </div>
 
-      {/* Tooltip on hover */}
-      <div className="absolute -top-9 left-0 hidden group-hover:flex items-center gap-1.5 border border-black/10 dark:border-white/10 bg-white dark:bg-black px-2 py-1 whitespace-nowrap z-10 pointer-events-none">
+      {/* Chain tooltip on hover */}
+      <div className="absolute -top-9 left-1/2 -translate-x-1/2 hidden group-hover/stat:flex items-center gap-1.5 border border-black/10 dark:border-white/10 bg-white dark:bg-black px-2 py-1 whitespace-nowrap z-20 pointer-events-none shadow-sm">
         <span className="text-[8px] font-mono text-black/40 dark:text-white/40 uppercase tracking-widest">⬡ Base Chain</span>
         <span className="text-[8px] font-mono text-black/60 dark:text-white/60">
           {supply !== null ? supply.toLocaleString() + ' nTZS' : '—'}
