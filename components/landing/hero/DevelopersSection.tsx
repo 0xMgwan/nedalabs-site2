@@ -7,8 +7,8 @@ const ecosystem = [
   { prefix: '├──', label: 'NEDApay',    desc: 'Instant Cross-Border Payments', href: 'https://www.nedapay.xyz/',        status: 'LIVE' },
   { prefix: '├──', label: 'GUAP',       desc: 'Africa\'s Predictions Market', href: 'https://www.guap.gold',           status: 'LIVE' },
   { prefix: '├──', label: 'WashikaDAU', desc: 'ReFi & Community Finance',    href: 'https://www.washikadau.com',       status: 'LIVE' },
-  { prefix: '├──', label: 'PayPerPlay', desc: 'Creator Monetization Platform', href: 'https://www.payperplay.xyz',     status: 'BETA' },
-  { prefix: '└──', label: 'SimpleFX',   desc: 'Automated Market Making',     href: 'https://www.ntzs.co.tz/simplefx', status: 'SOON' },
+  { prefix: '├──', label: 'PayPerPlay', desc: 'Creator Monetization Platform', href: 'https://www.payperplay.xyz',     status: 'LIVE' },
+  { prefix: '└──', label: 'SimpleFX',   desc: 'Automated Market Making',     href: 'https://www.ntzs.co.tz/simplefx', status: 'LIVE' },
 ];
 
 export function DevelopersSection() {
