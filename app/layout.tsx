@@ -12,7 +12,7 @@ import { AnalyticsWrapper } from '@/components/shared/Analytics';
 // NEDApay brand pack — same fonts as nedapay.xyz landing
 const displayFont = Anton({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: '400',
   display: 'swap',
   variable: '--font-space-display',
 });
