@@ -24,7 +24,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-space-default)', 'Montserrat', ...fontFamily.sans],
-        display: ['var(--font-space-display)', 'Anton', ...fontFamily.sans],
+        display: ['var(--font-space-default)', 'Montserrat', ...fontFamily.sans],
         mono: ['var(--font-np-mono)', 'DM Mono', 'IBM Plex Mono', ...fontFamily.mono],
         cursive: ['cursive'],
       },

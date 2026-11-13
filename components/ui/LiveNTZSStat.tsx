@@ -8,74 +8,42 @@ function formatSupply(n: number): string {
   return n.toLocaleString();
 }
 
-interface LiveNTZSStatProps {
-  /** 'sm' = hero inline stat (default), 'lg' = stats bar large */
-  size?: 'sm' | 'lg';
-}
-
-export function LiveNTZSStat({ size = 'sm' }: LiveNTZSStatProps) {
+export function LiveNTZSStat({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const [supply, setSupply] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
-  const [tick, setTick] = useState(false);
-
-  const fetchSupply = async () => {
-    try {
-      const res = await fetch('/api/stats');
-      const data = await res.json();
-      if (typeof data.supply === 'number') {
-        setSupply(data.supply);
-        setTick((t) => !t);
-      }
-    } catch {
-      // silently fail
-    } finally {
-      setLoading(false);
-    }
-  };
 
   useEffect(() => {
+    const fetchSupply = async () => {
+      try {
+        const res = await fetch('/api/stats');
+        const data = await res.json();
+        if (typeof data.supply === 'number') setSupply(data.supply);
+      } catch {
+        // keep the last value
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchSupply();
     const interval = setInterval(fetchSupply, 60_000);
     return () => clearInterval(interval);
   }, []);
 
-  const isLg = size === 'lg';
+  const muted = tone === 'dark' ? 'text-np-bone/60' : 'text-np-label';
 
   return (
-    <div className="flex flex-col gap-0.5 group/stat relative items-center">
-      {/* Value */}
-      <span
-        key={String(tick)}
-        className={`font-mono font-bold text-black dark:text-white animate-stat-pop ${isLg ? 'text-2xl mb-1' : 'text-lg'}`}
-      >
-        {loading ? (
-          <span className="opacity-30 animate-pulse">{isLg ? '···' : '···'}</span>
-        ) : supply !== null ? (
-          formatSupply(supply)
-        ) : (
-          '—'
-        )}
-      </span>
-
-      {/* Label + LIVE badge */}
-      <div className={`flex items-center justify-center gap-1.5 ${isLg ? '' : ''}`}>
-        <span className={`font-mono uppercase tracking-widest text-black/40 dark:text-white/40 ${isLg ? 'text-[9px]' : 'text-[9px]'}`}>
-          nTZS SUPPLY
-        </span>
+    <div title={supply !== null ? `${supply.toLocaleString()} nTZS on Base` : undefined}>
+      <div className={`np-label flex items-center gap-2 ${muted}`}>
+        nTZS supply
         {!loading && supply !== null && (
-          <span className="flex items-center gap-1 border border-black/10 dark:border-white/10 px-1 py-px">
-            <span className="w-1 h-1 rounded-full bg-black/60 dark:bg-white/60 animate-pulse" />
-            <span className="text-[7px] font-mono text-black/30 dark:text-white/30 tracking-widest">LIVE</span>
+          <span className="inline-flex items-center gap-1.5 text-np-blue">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-np-blue" />
+            Live
           </span>
         )}
       </div>
-
-      {/* Chain tooltip on hover */}
-      <div className="absolute -top-9 left-1/2 -translate-x-1/2 hidden group-hover/stat:flex items-center gap-1.5 border border-black/10 dark:border-white/10 bg-white dark:bg-black px-2 py-1 whitespace-nowrap z-20 pointer-events-none shadow-sm">
-        <span className="text-[8px] font-mono text-black/40 dark:text-white/40 uppercase tracking-widest">⬡ Base Chain</span>
-        <span className="text-[8px] font-mono text-black/60 dark:text-white/60">
-          {supply !== null ? supply.toLocaleString() + ' nTZS' : '—'}
-        </span>
+      <div className="mt-2 font-mono text-[clamp(32px,3.4vw,56px)] font-medium leading-none tracking-tight">
+        {loading ? <span className="animate-pulse opacity-30">···</span> : supply !== null ? formatSupply(supply) : '—'}
       </div>
     </div>
   );

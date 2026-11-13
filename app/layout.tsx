@@ -1,4 +1,4 @@
-import { Montserrat, DM_Mono, Anton } from 'next/font/google';
+import { Montserrat, DM_Mono } from 'next/font/google';
 import { siteConfig } from '@/data/config/site.settings';
 import { ThemeProviders } from './theme-providers';
 import { Metadata } from 'next';
@@ -8,14 +8,6 @@ import { colors } from '@/data/config/colors.js';
 import '@/css/globals.css';
 import { SearchProvider } from '@/components/shared/SearchProvider';
 import { AnalyticsWrapper } from '@/components/shared/Analytics';
-
-// NEDApay brand pack — same fonts as nedapay.xyz landing
-const displayFont = Anton({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-  variable: '--font-space-display',
-});
 
 const baseFont = Montserrat({
   subsets: ['latin'],
@@ -103,7 +95,7 @@ export default function RootLayout({
   return (
     <html
       lang={siteConfig.language}
-      className={`${baseFont.variable} ${displayFont.variable} ${monoFont.variable} scroll-smooth`}
+      className={`${baseFont.variable} ${monoFont.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
@@ -137,7 +129,7 @@ export default function RootLayout({
         <meta
           name="theme-color"
           media="(prefers-color-scheme: light)"
-          content="#f1f5f9"
+          content="#EFEAE1"
         />
         <meta
           name="theme-color"

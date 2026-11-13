@@ -181,29 +181,10 @@ export function FloatingMediaCard() {
   const Icon = slide.icon;
 
   return (
-    <div className="relative z-[3] w-full">
-      {/* Animated scan line */}
-      <motion.div
-        className="pointer-events-none absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-black/20 dark:via-white/20 to-transparent z-20"
-        animate={{ top: ['0%', '100%'] }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-        aria-hidden="true"
-      />
-
-      <div className="relative overflow-hidden border border-black/20 dark:border-white/20 bg-white dark:bg-black">
-        {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-black/60 dark:border-white/60 z-10 pointer-events-none" />
-
-        {/* Top progress bar */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-black/10 dark:bg-white/10 z-10">
-          <motion.div
-            className="h-full bg-black dark:bg-white origin-left"
-            style={{ scaleX: progress }}
-            transition={{ duration: 0 }}
-          />
+    <div className="relative w-full">
+      <div className="relative overflow-hidden rounded-[clamp(16px,2vw,32px)] bg-np-paper ring-1 ring-black/10">
+        <div className="absolute inset-x-0 top-0 h-1 bg-np-ink/5">
+          <div className="h-full origin-left bg-np-blue" style={{ transform: `scaleX(${progress})` }} />
         </div>
 
         <AnimatePresence custom={direction} mode="wait">
@@ -215,154 +196,82 @@ export function FloatingMediaCard() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center px-10 py-8 text-center sm:px-12 sm:py-10"
+            className="grid min-h-[420px] gap-8 p-8 sm:p-12 md:grid-cols-[auto_1fr] md:items-center"
           >
-            {/* Slide index */}
-            <motion.div
-              custom={0}
-              variants={stagger}
-              initial="hidden"
-              animate="show"
-              className="mb-4 self-stretch flex items-center gap-2"
-            >
-              <span className="text-[9px] font-mono text-black/30 dark:text-white/30 tracking-widest">
-                {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-              </span>
-              <div className="flex-1 h-px bg-black/10 dark:bg-white/10" />
-              <span className="text-[9px] font-mono text-black/30 dark:text-white/30 uppercase tracking-widest">
-                {paused ? 'PAUSED' : 'LIVE'}
-              </span>
-              {!paused && (
-                <motion.div
-                  className="w-1.5 h-1.5 rounded-full bg-black/60 dark:bg-white/60"
-                  animate={{ opacity: [1, 0.2, 1] }}
-                  transition={{ duration: 1, repeat: Infinity }}
-                />
-              )}
-            </motion.div>
-
-            {/* Logo / Icon */}
-            <motion.div custom={1} variants={stagger} initial="hidden" animate="show" className="mb-5">
+            <motion.div custom={0} variants={stagger} initial="hidden" animate="show">
               {slide.image ? (
-                <div className="border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 inline-block">
-                  <Image
-                    src={slide.image}
-                    alt={slide.title}
-                    width={64}
-                    height={64}
-                    className="h-14 w-14 object-cover sm:h-16 sm:w-16"
-                  />
-                </div>
+                <Image
+                  src={slide.image}
+                  alt=""
+                  width={128}
+                  height={128}
+                  className="h-20 w-20 rounded-[20px] object-cover ring-1 ring-black/10 sm:h-28 sm:w-28 sm:rounded-[28px]"
+                />
               ) : (
-                <div className="border border-black/20 dark:border-white/20 bg-white dark:bg-black flex h-14 w-14 items-center justify-center sm:h-16 sm:w-16">
-                  <Icon className="h-7 w-7 text-black/60 dark:text-white/60" />
+                <div className="flex h-20 w-20 items-center justify-center rounded-[20px] bg-np-bone sm:h-28 sm:w-28 sm:rounded-[28px]">
+                  <Icon className="h-9 w-9 text-np-ink sm:h-12 sm:w-12" />
                 </div>
               )}
             </motion.div>
 
-            {/* Subtitle */}
-            <motion.span
-              custom={2}
-              variants={stagger}
-              initial="hidden"
-              animate="show"
-              className="mb-3 inline-block border border-black/20 dark:border-white/20 px-3 py-1 text-[9px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50"
-            >
-              {slide.subtitle}
-            </motion.span>
-
-            {/* Title */}
-            <motion.h3
-              custom={3}
-              variants={stagger}
-              initial="hidden"
-              animate="show"
-              className="mb-3 font-mono font-bold text-black dark:text-white text-lg sm:text-2xl tracking-tight"
-            >
-              {slide.title}
-            </motion.h3>
-
-            {/* Description */}
-            <motion.p
-              custom={4}
-              variants={stagger}
-              initial="hidden"
-              animate="show"
-              className="mb-6 max-w-sm font-mono text-xs sm:text-sm text-black/60 dark:text-white/60 leading-relaxed"
-            >
-              {slide.description}
-            </motion.p>
-
-            {/* CTA buttons */}
-            <motion.div
-              custom={5}
-              variants={stagger}
-              initial="hidden"
-              animate="show"
-              className="flex flex-col items-center gap-3 sm:flex-row"
-            >
-              <a
-                href={slide.href}
-                target={slide.href.startsWith('http') ? '_blank' : undefined}
-                rel={slide.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group inline-flex items-center gap-2 rounded-full bg-[#369BED] font-mono text-xs uppercase tracking-widest px-6 py-3 text-white hover:bg-[#2a89d4] transition-all duration-200"
+            <div>
+              <motion.p custom={1} variants={stagger} initial="hidden" animate="show" className="np-label flex items-center gap-3 text-np-label">
+                <span className="text-np-blue">{String(current + 1).padStart(2, '0')}</span>
+                {slide.subtitle}
+              </motion.p>
+              <motion.h3
+                custom={2}
+                variants={stagger}
+                initial="hidden"
+                animate="show"
+                className="mt-4 text-[clamp(28px,3vw,48px)] font-medium leading-[1.05] tracking-[-0.03em]"
               >
-                {slide.cta}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="mailto:support@nedapay.xyz"
-                className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 font-mono text-xs uppercase tracking-widest px-6 py-3 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all duration-200"
-              >
-                Contact Sales
-              </a>
-            </motion.div>
+                {slide.title}
+              </motion.h3>
+              <motion.p custom={3} variants={stagger} initial="hidden" animate="show" className="np-body mt-4 max-w-[46ch] text-np-ink/75">
+                {slide.description}
+              </motion.p>
+              <motion.div custom={4} variants={stagger} initial="hidden" animate="show" className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={slide.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="np-focus group inline-flex items-center gap-2 rounded-full bg-np-blue px-6 py-3.5 font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
+                >
+                  {slide.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+                <a
+                  href="mailto:support@nedapay.xyz"
+                  className="np-focus inline-flex items-center rounded-full border border-np-ink px-6 py-3.5 font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
+                >
+                  Contact sales
+                </a>
+              </motion.div>
+            </div>
           </motion.div>
         </AnimatePresence>
-
-        {/* Navigation arrows */}
-        <button
-          onClick={prev}
-          className="absolute left-3 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
-        <button
-          onClick={next}
-          className="absolute right-3 top-1/2 -translate-y-1/2 border border-black/20 dark:border-white/20 bg-white dark:bg-black p-2 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </button>
       </div>
 
-      {/* Dot indicators */}
-      <div className="mt-4 flex items-center justify-center gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goto(index)}
-            className="group relative h-1 overflow-hidden transition-all duration-300"
-            style={{ width: index === current ? 32 : 10 }}
-            aria-label={`Go to slide ${index + 1}`}
-          >
-            <span
-              className={`absolute inset-0 ${
-                index === current
-                  ? 'bg-black/30 dark:bg-white/30'
-                  : 'bg-black/10 dark:bg-white/10 group-hover:bg-black/20 dark:group-hover:bg-white/20'
-              }`}
+      <div className="mt-4 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          {slides.map((s, index) => (
+            <button
+              key={s.title}
+              onClick={() => goto(index)}
+              className={`np-focus h-2 rounded-full transition-all duration-300 ${index === current ? 'w-8 bg-np-ink' : 'w-2 bg-np-ink/20 hover:bg-np-ink/40'}`}
+              aria-label={`Go to slide ${index + 1}`}
             />
-            {index === current && (
-              <motion.span
-                className="absolute inset-y-0 left-0 bg-black dark:bg-white"
-                style={{ width: `${progress * 100}%` }}
-              />
-            )}
-            {index < current && <span className="absolute inset-0 bg-black/50 dark:bg-white/50" />}
+          ))}
+        </div>
+        <div className="flex items-center gap-2">
+          <button onClick={prev} className="np-focus rounded-full border border-np-ink/20 p-2.5 transition-colors hover:border-np-ink" aria-label="Previous slide">
+            <ChevronLeft className="h-4 w-4" />
           </button>
-        ))}
+          <button onClick={next} className="np-focus rounded-full border border-np-ink/20 p-2.5 transition-colors hover:border-np-ink" aria-label="Next slide">
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
       </div>
     </div>
   );

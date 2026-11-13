@@ -1,61 +1,44 @@
 'use client';
 
-import { ArrowRight, Mail } from 'lucide-react';
+import { Reveal, WaveText } from '@/components/np/motion';
 
 export function CtaSection() {
   return (
-    <section id="get-started" className="relative w-full bg-white dark:bg-black py-16 lg:py-24 border-t border-black/10 dark:border-white/10">
-      <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
-
-        {/* Top decoration */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
-          <span className="font-mono text-[9px] text-black/30 dark:text-white/30 uppercase tracking-widest">&#8734;</span>
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
-        </div>
-
-        <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-4">{"// GET STARTED"}</p>
-
-        <h2 className="font-mono font-bold text-black dark:text-white text-2xl sm:text-3xl md:text-5xl tracking-tight mb-4">
-          READY TO TRANSFORM YOUR<br className="hidden sm:block" /> FINANCIAL OPERATIONS?
-        </h2>
-
-        <p className="font-mono text-sm text-black/60 dark:text-white/60 mb-2">
-          Join thousands of businesses and developers building the future of finance with Neda Labs
-        </p>
-        <p className="font-mono text-[10px] text-black/30 dark:text-white/30 mb-8">
-          Explore our products and get started today
-        </p>
-
-        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row mb-10">
-          <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-[#369BED] font-mono text-xs uppercase tracking-widest px-7 py-3 text-white hover:bg-[#2a89d4] transition-all duration-200">
-            GET STARTED NOW
-            <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+    <section id="get-started" className="np-wrap scroll-mt-24 py-24 lg:py-36">
+      <Reveal>
+        <p className="np-label text-np-blue">05 · Get started</p>
+      </Reveal>
+      <WaveText as="h2" text="Ready to move money differently?" className="np-display mt-6 max-w-[14ch]" />
+      <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-end">
+        <Reveal className="lg:col-span-6" delay={150}>
+          <p className="np-body max-w-[46ch] text-np-ink/75">
+            Join the businesses and developers building the future of finance with NEDA Labs. Explore our products and get started today.
+          </p>
+        </Reveal>
+        <Reveal className="flex flex-wrap gap-3 lg:col-span-6 lg:justify-end" delay={250}>
+          <a
+            href="https://www.nedapay.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="np-focus rounded-full bg-np-blue px-7 py-4 text-base font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
+          >
+            Get started now
           </a>
-          <a href="mailto:support@nedapay.xyz"
-            className="inline-flex items-center gap-2 border border-black/20 dark:border-white/20 font-mono text-xs uppercase tracking-widest px-7 py-3 text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all duration-200">
-            <Mail className="h-3.5 w-3.5" />
-            CONTACT SALES
+          <a
+            href="mailto:support@nedapay.xyz"
+            className="np-focus rounded-full border border-np-ink px-7 py-4 text-base font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
+          >
+            Contact sales
           </a>
-        </div>
-
-        <div className="flex flex-wrap items-center justify-center gap-6 font-mono text-[9px] text-black/30 dark:text-white/30 uppercase tracking-widest">
-          {['No setup fees', 'Cancel anytime', '24/7 support'].map((item) => (
-            <div key={item} className="flex items-center gap-2">
-              <span className="text-black/20 dark:text-white/20">—</span>
-              {item}
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom decoration */}
-        <div className="flex items-center justify-center gap-3 mt-8">
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
-          <span className="font-mono text-[9px] text-black/20 dark:text-white/20 uppercase tracking-widest">NEDALABS.PROTOCOL</span>
-          <div className="h-px flex-1 bg-black/10 dark:bg-white/10" />
-        </div>
+        </Reveal>
       </div>
+      <Reveal className="mt-14" delay={300}>
+        <ul className="np-label flex flex-wrap gap-x-8 gap-y-3 text-np-label">
+          {['No setup fees', 'Cancel anytime', '24/7 support'].map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </Reveal>
     </section>
   );
 }

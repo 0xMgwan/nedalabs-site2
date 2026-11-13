@@ -1,106 +1,85 @@
 'use client';
 
-import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, Code } from 'lucide-react';
+import { Code } from 'lucide-react';
 import { products, stats } from '@/data/config/heroData';
 import { LiveNTZSStat } from '@/components/ui/LiveNTZSStat';
+import { Reveal, WaveText } from '@/components/np/motion';
 
 export function ProductsSection() {
   return (
-    <section id="products" className="relative w-full bg-white dark:bg-black py-16 lg:py-24 border-t border-black/10 dark:border-white/10">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        {/* Header */}
-        <div className="mb-12">
-          <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40 mb-3">{"// OUR PRODUCTS"}</p>
-          <h2 className="font-mono font-bold text-black dark:text-white text-3xl md:text-5xl tracking-tight mb-3">
-            BUILDING THE FUTURE<br />OF FINANCE
-          </h2>
-          <p className="font-mono text-sm text-black/50 dark:text-white/50 max-w-xl">
-            Comprehensive digital financial solutions designed for the modern economy
-          </p>
+    <section id="products" className="scroll-mt-24 bg-np-paper">
+      <div className="np-wrap py-24 lg:py-32">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <Reveal>
+              <p className="np-label text-np-blue">01 · Products</p>
+            </Reveal>
+            <WaveText as="h2" text="One stack for African money." className="np-h2 mt-6 max-w-[14ch]" />
+          </div>
+          <Reveal>
+            <p className="np-body max-w-[38ch] text-np-ink/75">
+              Comprehensive digital financial solutions designed for the modern economy.
+            </p>
+          </Reveal>
         </div>
 
-        {/* Cards — horizontal scroll on mobile, 3-col grid on desktop */}
-        <div
-          className="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2 snap-x snap-mandatory lg:grid lg:grid-cols-3 lg:overflow-x-visible lg:pb-0 lg:mx-0 lg:px-0"
-          style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
-        >
-          {products.map((product, index) => {
-            return (
-              <div key={product.title}
-                className="group relative flex-shrink-0 w-72 min-w-[280px] snap-start lg:w-auto lg:min-w-0 border border-black/10 dark:border-white/10 bg-white dark:bg-black p-6 hover:border-black/30 dark:hover:border-white/30 transition-colors">
-                {/* Corner accent */}
-                <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/20 dark:border-white/20 group-hover:border-black/50 dark:group-hover:border-white/50 transition-colors pointer-events-none" />
-
-                <div className="mb-4 flex items-center gap-2">
+        <div className="mt-14 grid gap-x-6 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
+          {products.map((product, i) => (
+            <Reveal key={product.title} delay={(i % 3) * 120}>
+              <a
+                href={product.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="np-focus group flex h-full flex-col gap-4 border-t-2 border-np-ink pt-6"
+              >
+                <span className="flex items-center gap-3">
                   {product.logo ? (
-                    <Image src={product.logo} alt={product.title} width={20} height={20}
-                      className="h-5 w-5 rounded object-cover opacity-70" />
+                    <Image src={product.logo} alt="" width={36} height={36} className="h-9 w-9 rounded-[10px] object-cover ring-1 ring-black/10" />
                   ) : (
-                    <Code className="h-4 w-4 text-black/50 dark:text-white/50" />
+                    <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-np-bone">
+                      <Code className="h-4 w-4" />
+                    </span>
                   )}
-                  <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-black/40 dark:text-white/40">
-                    PRODUCT.{String(index + 1).padStart(2, '0')}
-                  </p>
-                </div>
-
-                <h3 className="font-mono font-bold text-black dark:text-white text-base mb-2 uppercase tracking-wide">
-                  {product.title}
-                </h3>
-
-                <p className="font-mono text-xs text-black/50 dark:text-white/50 leading-relaxed mb-4">
-                  {product.description}
-                </p>
-
-                <ul className="mb-5 space-y-1.5">
+                  <span className="np-label text-np-label">{String(i + 1).padStart(2, '0')}</span>
+                </span>
+                <span className="text-[clamp(26px,2.4vw,40px)] font-medium leading-[1.05] tracking-tight">{product.title}</span>
+                <span className="np-body text-np-ink/75">{product.description}</span>
+                <ul className="flex flex-wrap gap-2">
                   {product.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-[10px] font-mono text-black/40 dark:text-white/40">
-                      <span className="text-black/30 dark:text-white/30">—</span>
+                    <li key={feature} className="np-label rounded-full border border-np-ink/15 px-3 py-1.5 text-[11px] text-np-label">
                       {feature}
                     </li>
                   ))}
                 </ul>
-
-                <a href={product.href}
-                  target={product.href.startsWith('http') ? '_blank' : undefined}
-                  rel={product.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors group-hover:text-black dark:group-hover:text-white">
-                  Learn more <ArrowRight className="h-3 w-3" />
-                </a>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Stats bar */}
-        <div className="mt-8 border border-black/10 dark:border-white/10 grid grid-cols-2 md:grid-cols-4">
-          {stats.map((stat, i) => (
-            <a
-              key={stat.label}
-              href={stat.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group px-6 py-5 text-center relative hover:bg-black/[0.03] dark:hover:bg-white/[0.03] transition-colors cursor-pointer ${i < stats.length - 1 ? 'border-r border-black/10 dark:border-white/10' : ''}`}
-            >
-              {/* Corner accent on hover */}
-              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-transparent group-hover:border-black/30 dark:group-hover:border-white/30 transition-colors pointer-events-none" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-transparent group-hover:border-black/30 dark:group-hover:border-white/30 transition-colors pointer-events-none" />
-
-              {stat.live ? (
-                /* Live on-chain stat */
-                <div className="flex flex-col items-center">
-                  <LiveNTZSStat size="lg" />
-                </div>
-              ) : (
-                <>
-                  <div className="font-mono font-bold text-black dark:text-white text-2xl mb-1">{stat.value}</div>
-                  <div className="text-[9px] font-mono uppercase tracking-widest text-black/40 dark:text-white/40">{stat.label}</div>
-                </>
-              )}
-            </a>
+                <span className="mt-auto pt-2 font-bold text-np-blue group-hover:underline">Learn more →</span>
+              </a>
+            </Reveal>
           ))}
         </div>
+
+        <Reveal className="mt-20">
+          <dl className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+            {stats.map((stat) => (
+              <a
+                key={stat.label}
+                href={stat.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="np-focus block border-t border-np-ink/15 pt-4 transition-colors hover:border-np-ink"
+              >
+                {stat.live ? (
+                  <LiveNTZSStat />
+                ) : (
+                  <>
+                    <dt className="np-label text-np-label">{stat.label}</dt>
+                    <dd className="mt-2 font-mono text-[clamp(32px,3.4vw,56px)] font-medium leading-none tracking-tight">{stat.value}</dd>
+                  </>
+                )}
+              </a>
+            ))}
+          </dl>
+        </Reveal>
       </div>
     </section>
   );

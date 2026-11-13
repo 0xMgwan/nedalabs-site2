@@ -1,109 +1,85 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Sun, Moon } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import Image from 'next/image';
+import { ChevronDown } from 'lucide-react';
 import { navLinks } from '@/data/config/heroData';
 import { MegaMenu } from './MegaMenu';
 
 export function NavBar() {
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const closeMegaMenu = useCallback(() => setMegaMenuOpen(false), []);
-  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white dark:bg-black border-b border-black/10 dark:border-white/10">
-
-      {/* Main row — logo + actions */}
-      <div className="mx-auto flex h-12 max-w-7xl items-center justify-between px-4 lg:px-10 xl:px-14 relative">
-
-        {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-black/20 dark:border-white/20 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-black/20 dark:border-white/20 pointer-events-none" />
-
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span className="font-mono text-base font-bold tracking-widest text-black dark:text-white">
-            NEDA<span className="font-light opacity-60"> LABS</span>
-          </span>
-          <span className="hidden sm:block h-3 w-px bg-black/20 dark:bg-white/20" />
-          <span className="hidden sm:block text-black/30 dark:text-white/30 text-[9px] font-mono tracking-widest">EST. 2024</span>
+    <header
+      className={`sticky top-0 z-50 w-full transition-[background-color,box-shadow] duration-300 ${
+        scrolled ? 'bg-np-bone/90 shadow-[0_1px_0_rgba(0,0,0,0.08)] backdrop-blur-md' : 'bg-np-bone'
+      }`}
+    >
+      <div className="np-wrap flex h-[72px] items-center justify-between gap-6">
+        <Link href="/" className="np-focus flex shrink-0 items-center gap-2.5" aria-label="NEDA Labs home">
+          <Image src="/assets/logos/nedalabs.jpg" alt="" width={40} height={40} className="h-9 w-9 rounded-[10px] object-cover sm:h-10 sm:w-10" />
+          <span className="text-xl font-bold tracking-tight">NEDA Labs</span>
         </Link>
 
-        {/* Desktop nav links */}
-        <div className="hidden items-center gap-1 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <div key={link.label} className="relative">
               {link.hasChevron && link.label === 'Products' ? (
                 <button
                   onClick={() => setMegaMenuOpen((prev) => !prev)}
-                  className="flex items-center gap-1 px-3 py-2 text-[11px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
+                  aria-expanded={megaMenuOpen}
+                  className="np-focus flex items-center gap-1 text-[15px] font-semibold text-np-ink/70 transition-colors hover:text-np-ink"
                 >
                   {link.label}
-                  <ChevronDown className={`h-3 w-3 transition-transform ${megaMenuOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-4 w-4 transition-transform ${megaMenuOpen ? 'rotate-180' : ''}`} />
                 </button>
               ) : (
-                <a
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-1 px-3 py-2 text-[11px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
-                >
+                <a href={link.href} className="np-focus text-[15px] font-semibold text-np-ink/70 transition-colors hover:text-np-ink">
                   {link.label}
                 </a>
               )}
-              {link.label === 'Products' && (
-                <MegaMenu isOpen={megaMenuOpen} onClose={closeMegaMenu} />
-              )}
+              {link.label === 'Products' && <MegaMenu isOpen={megaMenuOpen} onClose={closeMegaMenu} />}
             </div>
           ))}
-        </div>
+        </nav>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-1.5">
-          <button
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="inline-flex items-center justify-center p-2 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors"
-            aria-label="Toggle theme"
+        <div className="flex items-center gap-3">
+          <a
+            href="mailto:support@nedapay.xyz"
+            className="np-focus np-label hidden rounded-full border border-np-ink/80 px-4 py-2.5 text-np-ink transition-colors hover:bg-np-ink hover:text-np-bone lg:inline-flex"
           >
-            <Sun className="h-4 w-4 hidden dark:block" />
-            <Moon className="h-4 w-4 block dark:hidden" />
-          </button>
-          <a href="mailto:support@nedapay.xyz"
-            className="hidden lg:inline-flex border border-black/20 dark:border-white/20 px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-black/60 dark:text-white/60 hover:border-black dark:hover:border-white hover:text-black dark:hover:text-white transition-all">
             Contact
           </a>
-          <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
-            className="rounded-full bg-[#369BED] px-4 py-1.5 text-[9px] font-mono uppercase tracking-widest text-white hover:bg-[#2a89d4] transition-all whitespace-nowrap">
-            Get Started
+          <a
+            href="https://www.nedapay.xyz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="np-focus whitespace-nowrap rounded-full bg-np-blue px-4 py-2.5 text-sm font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5 sm:px-5 sm:text-[15px]"
+          >
+            Get started
           </a>
         </div>
       </div>
 
-      {/* Mobile nav strip — links row, no hamburger */}
-      <div className="lg:hidden border-t border-black/10 dark:border-white/10 overflow-x-auto flex items-center" style={{ scrollbarWidth: 'none' }}>
-        <div className="flex items-center px-4 gap-0 shrink-0">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="shrink-0 px-3 py-2.5 text-[10px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors border-r border-black/5 dark:border-white/5 last:border-r-0"
-            >
+      <div className="flex overflow-x-auto border-t border-np-ink/10 lg:hidden" style={{ scrollbarWidth: 'none' }}>
+        <div className="np-wrap flex shrink-0 items-center gap-6 py-3">
+          {[...navLinks, { label: 'Contact', href: 'mailto:support@nedapay.xyz' }].map((link) => (
+            <a key={link.label} href={link.href} className="np-focus shrink-0 text-sm font-semibold text-np-ink/70 hover:text-np-ink">
               {link.label}
             </a>
           ))}
-          <a
-            href="mailto:support@nedapay.xyz"
-            className="shrink-0 px-3 py-2.5 text-[10px] font-mono uppercase tracking-widest text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white transition-colors"
-          >
-            Contact
-          </a>
         </div>
       </div>
-
-    </nav>
+    </header>
   );
 }
