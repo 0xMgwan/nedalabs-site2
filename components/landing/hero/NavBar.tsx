@@ -75,7 +75,7 @@ export function NavBar() {
             Contact
           </a>
           <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
-            className="border border-black dark:border-white px-3 py-1.5 text-[9px] font-mono uppercase tracking-widest text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all whitespace-nowrap">
+            className="rounded-full bg-[#369BED] px-4 py-1.5 text-[9px] font-mono uppercase tracking-widest text-white hover:bg-[#2a89d4] transition-all whitespace-nowrap">
             Get Started
           </a>
         </div>

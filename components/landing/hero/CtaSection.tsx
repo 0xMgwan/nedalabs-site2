@@ -29,7 +29,7 @@ export function CtaSection() {
 
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row mb-10">
           <a href="https://www.nedapay.xyz/" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-black dark:border-white font-mono text-xs uppercase tracking-widest px-7 py-3 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200 group">
+            className="group inline-flex items-center gap-2 rounded-full bg-[#369BED] font-mono text-xs uppercase tracking-widest px-7 py-3 text-white hover:bg-[#2a89d4] transition-all duration-200">
             GET STARTED NOW
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
           </a>

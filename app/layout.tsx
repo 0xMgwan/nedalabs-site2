@@ -1,4 +1,4 @@
-import { Nunito_Sans } from 'next/font/google';
+import { Montserrat, DM_Mono, Anton } from 'next/font/google';
 import { siteConfig } from '@/data/config/site.settings';
 import { ThemeProviders } from './theme-providers';
 import { Metadata } from 'next';
@@ -9,16 +9,26 @@ import '@/css/globals.css';
 import { SearchProvider } from '@/components/shared/SearchProvider';
 import { AnalyticsWrapper } from '@/components/shared/Analytics';
 
-const displayFont = Nunito_Sans({
+// NEDApay brand pack — same fonts as nedapay.xyz landing
+const displayFont = Anton({
   subsets: ['latin'],
+  weight: ['400'],
   display: 'swap',
   variable: '--font-space-display',
 });
 
-const baseFont = Nunito_Sans({
+const baseFont = Montserrat({
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
   display: 'swap',
   variable: '--font-space-default',
+});
+
+const monoFont = DM_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  display: 'swap',
+  variable: '--font-np-mono',
 });
 
 const globalColors = colors;
@@ -93,7 +103,7 @@ export default function RootLayout({
   return (
     <html
       lang={siteConfig.language}
-      className={`${baseFont.variable} ${displayFont.variable} scroll-smooth`}
+      className={`${baseFont.variable} ${displayFont.variable} ${monoFont.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
@@ -137,7 +147,7 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
 
-      <body className="flex flex-col bg-white text-primary-800 antialiased dark:bg-black dark:text-white/[0.92] min-h-screen">
+      <body className="flex flex-col bg-[#EFEAE1] text-primary-800 antialiased dark:bg-black dark:text-white/[0.92] min-h-screen">
         <ThemeProviders>
           <AnalyticsWrapper />
 

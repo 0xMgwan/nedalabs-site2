@@ -8,7 +8,8 @@
       22px 25px 16px 0px rgba(0, 0, 0, 0.2);
     --hard-shadow-left: 0px 29px 52px 0px rgba(0, 0, 0, 0.4),
       -22px 25px 16px 0px rgba(0, 0, 0, 0.2);
-    --background: 210 40% 96%;
+    /* NEDApay brand pack: warm bone/cream light mode */
+    --background: 37 29% 91%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
@@ -52,6 +53,14 @@
   ::before,
   ::after {
     @apply border-gray-100 dark:border-neutral-800;
+  }
+
+  /* Warm bone/cream backgrounds for light mode — NEDApay brand pack */
+  :root {
+    --np-bone: #EFEAE1;
+  }
+  body:not(.dark) {
+    background-color: var(--np-bone);
   }
 
   h1,

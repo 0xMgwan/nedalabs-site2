@@ -305,7 +305,7 @@ export function FloatingMediaCard() {
                 href={slide.href}
                 target={slide.href.startsWith('http') ? '_blank' : undefined}
                 rel={slide.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group inline-flex items-center gap-2 border border-black dark:border-white font-mono text-xs uppercase tracking-widest px-6 py-3 text-black dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-200"
+                className="group inline-flex items-center gap-2 rounded-full bg-[#369BED] font-mono text-xs uppercase tracking-widest px-6 py-3 text-white hover:bg-[#2a89d4] transition-all duration-200"
               >
                 {slide.cta}
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
