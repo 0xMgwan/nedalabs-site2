@@ -20,13 +20,13 @@ export function CtaSection() {
             href="https://www.nedapay.xyz/"
             target="_blank"
             rel="noopener noreferrer"
-            className="np-focus rounded-full bg-np-blue px-7 py-4 text-base font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
+            className="np-focus rounded-full bg-np-blue px-6 py-3 text-base font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
           >
             Get started now
           </a>
           <a
             href="mailto:support@nedapay.xyz"
-            className="np-focus rounded-full border border-np-ink px-7 py-4 text-base font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
+            className="np-focus rounded-full border border-np-ink px-6 py-3 text-base font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
           >
             Contact sales
           </a>

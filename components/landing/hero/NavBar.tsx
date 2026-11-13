@@ -56,7 +56,7 @@ export function NavBar() {
         <div className="flex items-center gap-3">
           <a
             href="mailto:support@nedapay.xyz"
-            className="np-focus np-label hidden rounded-full border border-np-ink/80 px-4 py-2.5 text-np-ink transition-colors hover:bg-np-ink hover:text-np-bone lg:inline-flex"
+            className="np-focus hidden rounded-full border border-np-ink/80 px-4 py-2.5 text-[15px] font-bold text-np-ink transition-colors hover:bg-np-ink hover:text-np-bone lg:inline-flex"
           >
             Contact
           </a>

@@ -24,7 +24,7 @@ export function FeaturesSection() {
             <Reveal key={feature.title} delay={(i % 2) * 120}>
               <div className="border-t border-np-ink/15 pt-6">
                 <p className="np-label text-np-label">{String(i + 1).padStart(2, '0')}</p>
-                <h3 className="mt-4 text-[clamp(22px,1.9vw,30px)] font-medium leading-tight tracking-tight">{feature.title}</h3>
+                <h3 className="mt-4 text-[clamp(19px,1.6vw,26px)] font-medium leading-tight tracking-tight">{feature.title}</h3>
                 <p className="np-body mt-3 text-np-ink/75">{feature.description}</p>
               </div>
             </Reveal>

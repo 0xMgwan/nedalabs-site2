@@ -21,7 +21,7 @@ export function HeroAsciiOne() {
               <span className="hidden sm:inline">nTZS, Tanzania&apos;s first regulated stablecoin →</span>
             </a>
           </Reveal>
-          <WaveText as="h1" text="Building the future of finance in Africa." className="np-display max-w-[16ch]" />
+          <WaveText as="h1" text="Building the future of finance in Africa." className="np-display" />
         </div>
         <Reveal className="lg:col-span-4" delay={250}>
           <p className="np-body text-np-ink/80">
@@ -32,7 +32,7 @@ export function HeroAsciiOne() {
               href="https://www.nedapay.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="np-focus rounded-full bg-np-blue px-7 py-4 text-base font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
+              className="np-focus rounded-full bg-np-blue px-6 py-3 text-base font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
             >
               Get started
             </a>
@@ -40,7 +40,7 @@ export function HeroAsciiOne() {
               href="https://www.ntzs.co.tz/developers"
               target="_blank"
               rel="noopener noreferrer"
-              className="np-focus rounded-full border border-np-ink px-7 py-4 text-base font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
+              className="np-focus rounded-full border border-np-ink px-6 py-3 text-base font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
             >
               View docs
             </a>
@@ -63,7 +63,7 @@ export function HeroAsciiOne() {
               ].map(([val, lbl]) => (
                 <div key={lbl} className="border-t border-np-bone/20 pt-4">
                   <dt className="np-label text-np-bone/60">{lbl}</dt>
-                  <dd className="mt-2 font-mono text-[clamp(32px,3.4vw,56px)] font-medium leading-none tracking-tight">{val}</dd>
+                  <dd className="mt-2 tabular-nums text-[clamp(28px,2.8vw,46px)] font-medium leading-none tracking-tight">{val}</dd>
                 </div>
               ))}
               <a

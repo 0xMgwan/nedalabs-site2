@@ -43,7 +43,7 @@ export function ProductsSection() {
                   )}
                   <span className="np-label text-np-label">{String(i + 1).padStart(2, '0')}</span>
                 </span>
-                <span className="text-[clamp(26px,2.4vw,40px)] font-medium leading-[1.05] tracking-tight">{product.title}</span>
+                <span className="text-[clamp(22px,2vw,34px)] font-medium leading-[1.05] tracking-tight">{product.title}</span>
                 <span className="np-body text-np-ink/75">{product.description}</span>
                 <ul className="flex flex-wrap gap-2">
                   {product.features.map((feature) => (
@@ -73,7 +73,7 @@ export function ProductsSection() {
                 ) : (
                   <>
                     <dt className="np-label text-np-label">{stat.label}</dt>
-                    <dd className="mt-2 font-mono text-[clamp(32px,3.4vw,56px)] font-medium leading-none tracking-tight">{stat.value}</dd>
+                    <dd className="mt-2 tabular-nums text-[clamp(28px,2.8vw,46px)] font-medium leading-none tracking-tight">{stat.value}</dd>
                   </>
                 )}
               </a>

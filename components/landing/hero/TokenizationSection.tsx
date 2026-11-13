@@ -92,7 +92,7 @@ function MarketClock() {
         <span>24:00</span>
       </div>
 
-      <p className="mt-8 text-[clamp(22px,2vw,30px)] font-medium leading-tight tracking-tight">
+      <p className="mt-8 text-[clamp(19px,1.7vw,26px)] font-medium leading-tight tracking-tight">
         {exchangeOpen ? 'Wall Street is open. So are we.' : 'Wall Street is closed. NEDApay is still trading.'}
       </p>
     </div>
@@ -118,13 +118,13 @@ export function TokenizationSection() {
                 href="https://app.nedapay.xyz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="np-focus rounded-full bg-np-blue px-7 py-4 font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
+                className="np-focus rounded-full bg-np-blue px-6 py-3 font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
               >
                 Trade on NEDApay
               </a>
               <a
-                href="mailto:support@nedapay.xyz?subject=Tokenization"
-                className="np-focus rounded-full border border-np-bone/60 px-7 py-4 font-bold transition-colors hover:bg-np-bone hover:text-np-ink"
+                href="mailto:devops@nedapay.xyz?subject=Tokenization"
+                className="np-focus rounded-full border border-np-bone/60 px-6 py-3 font-bold transition-colors hover:bg-np-bone hover:text-np-ink"
               >
                 Tokenize an asset
               </a>
@@ -142,7 +142,7 @@ export function TokenizationSection() {
           <Reveal key={a.kind} delay={i * 120}>
             <div className="border-t border-np-bone/20 pt-6">
               <p className="np-label text-np-blue">{String(i + 1).padStart(2, '0')}</p>
-              <h3 className="mt-4 text-[clamp(26px,2.4vw,40px)] font-medium leading-none tracking-tight">{a.kind}</h3>
+              <h3 className="mt-4 text-[clamp(22px,2vw,34px)] font-medium leading-none tracking-tight">{a.kind}</h3>
               <p className="np-body mt-3 text-np-bone/70">{a.body}</p>
             </div>
           </Reveal>
@@ -165,7 +165,7 @@ export function TokenizationSection() {
                 loading="eager"
                 className={`h-8 w-8 rounded-full bg-np-paper ${sym === 'CRDB' ? 'object-contain p-0.5' : 'object-cover'}`}
               />
-              <span className="font-mono text-sm font-medium">{sym}</span>
+              <span className="tabular-nums text-sm font-medium">{sym}</span>
               <span className="text-sm text-np-bone/60">{name}</span>
               <span className="np-label text-[10px] text-np-blue">24/7</span>
             </span>

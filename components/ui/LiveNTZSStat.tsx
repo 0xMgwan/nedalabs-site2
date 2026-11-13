@@ -42,7 +42,7 @@ export function LiveNTZSStat({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
           </span>
         )}
       </div>
-      <div className="mt-2 font-mono text-[clamp(32px,3.4vw,56px)] font-medium leading-none tracking-tight">
+      <div className="mt-2 tabular-nums text-[clamp(28px,2.8vw,46px)] font-medium leading-none tracking-tight">
         {loading ? <span className="animate-pulse opacity-30">···</span> : supply !== null ? formatSupply(supply) : '—'}
       </div>
     </div>

@@ -36,7 +36,7 @@ export function SimpleFXSection() {
               {metrics.map(({ val, lbl }) => (
                 <div key={lbl} className="border-t border-np-bone/20 pt-4">
                   <dt className="np-label text-np-bone/60">{lbl}</dt>
-                  <dd className="mt-2 font-mono text-[clamp(26px,2.8vw,48px)] font-medium leading-none tracking-tight">{val}</dd>
+                  <dd className="mt-2 tabular-nums text-[clamp(24px,2.3vw,40px)] font-medium leading-none tracking-tight">{val}</dd>
                 </div>
               ))}
             </dl>
@@ -45,7 +45,7 @@ export function SimpleFXSection() {
                 href="https://www.ntzs.co.tz/simplefx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="np-focus rounded-full bg-np-blue px-7 py-4 font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
+                className="np-focus rounded-full bg-np-blue px-6 py-3 font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
               >
                 Start market making
               </a>
@@ -53,7 +53,7 @@ export function SimpleFXSection() {
                 href="https://www.ntzs.co.tz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="np-focus rounded-full border border-np-bone/60 px-7 py-4 font-bold transition-colors hover:bg-np-bone hover:text-np-ink"
+                className="np-focus rounded-full border border-np-bone/60 px-6 py-3 font-bold transition-colors hover:bg-np-bone hover:text-np-ink"
               >
                 About nTZS
               </a>
@@ -67,7 +67,7 @@ export function SimpleFXSection() {
               <li className="grid grid-cols-[auto_1fr] gap-6 border-t border-np-bone/20 py-8">
                 <span className="np-label pt-2 text-np-blue">{String(i + 1).padStart(2, '0')}</span>
                 <div>
-                  <h3 className="text-[clamp(24px,2.2vw,36px)] font-medium leading-tight tracking-tight">{s.title}</h3>
+                  <h3 className="text-[clamp(21px,1.9vw,30px)] font-medium leading-tight tracking-tight">{s.title}</h3>
                   <p className="np-body mt-3 text-np-bone/70">{s.desc}</p>
                 </div>
               </li>

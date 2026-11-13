@@ -1,5 +1,5 @@
 const metadata = {
-  title: 'NEDA LABS | Building the Future of Finance',
+  title: 'NEDA Labs | Building the Future of Finance',
   description:
     'Secure, compliant digital financial infrastructure. Stablecoins, instant payments, and developer APIs powering the modern economy.',
   domain: 'nedalabs-site2.vercel.app',
@@ -7,7 +7,7 @@ const metadata = {
   businessName: 'NEDA LABS',
   siteUrl: 'https://nedalabs-site2.vercel.app',
   siteRepo: 'https://github.com/0xMgwan/nedalabs-site2',
-  socialBanner: '/api/og',
+  socialBanner: '/api/og?v=2',
   supportEmail: 'support@nedalabs.com',
   email: 'hello@nedalabs.com',
   twitter: '',

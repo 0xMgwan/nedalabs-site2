@@ -49,8 +49,8 @@ export const metadata: Metadata = {
       {
         url: siteConfig.socialBanner,
         width: 1200,
-        height: 600,
-        alt: 'NEDA LABS - Building the Future of Finance',
+        height: 630,
+        alt: 'NEDA Labs - Building the Future of Finance',
       }
     ],
     locale: 'en_US',
@@ -80,8 +80,8 @@ export const metadata: Metadata = {
       {
         url: siteConfig.socialBanner,
         width: 1200,
-        height: 600,
-        alt: 'NEDA LABS - Building the Future of Finance',
+        height: 630,
+        alt: 'NEDA Labs - Building the Future of Finance',
       }
     ],
   },

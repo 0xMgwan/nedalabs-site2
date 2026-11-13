@@ -196,7 +196,7 @@ export function FloatingMediaCard() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="grid min-h-[420px] gap-8 p-8 sm:p-12 md:grid-cols-[auto_1fr] md:items-center"
+            className="grid min-h-[340px] gap-8 p-8 sm:p-12 md:grid-cols-[auto_1fr] md:items-center"
           >
             <motion.div custom={0} variants={stagger} initial="hidden" animate="show">
               {slide.image ? (
@@ -224,7 +224,7 @@ export function FloatingMediaCard() {
                 variants={stagger}
                 initial="hidden"
                 animate="show"
-                className="mt-4 text-[clamp(28px,3vw,48px)] font-medium leading-[1.05] tracking-[-0.03em]"
+                className="mt-4 text-[clamp(24px,2.4vw,38px)] font-medium leading-[1.05] tracking-[-0.03em]"
               >
                 {slide.title}
               </motion.h3>

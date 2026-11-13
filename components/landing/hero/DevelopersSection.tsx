@@ -29,7 +29,7 @@ export function DevelopersSection() {
                 href="https://www.ntzs.co.tz/developers"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="np-focus rounded-full bg-np-blue px-7 py-4 font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
+                className="np-focus rounded-full bg-np-blue px-6 py-3 font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5"
               >
                 View docs
               </a>
@@ -37,7 +37,7 @@ export function DevelopersSection() {
                 href="https://www.nedapay.xyz/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="np-focus rounded-full border border-np-ink px-7 py-4 font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
+                className="np-focus rounded-full border border-np-ink px-6 py-3 font-bold transition-colors hover:bg-np-ink hover:text-np-bone"
               >
                 Get started
               </a>
@@ -63,7 +63,7 @@ export function DevelopersSection() {
                     rel="noopener noreferrer"
                     className="np-focus group flex items-baseline justify-between gap-4 border-t border-np-ink/15 py-5"
                   >
-                    <span className="text-[clamp(22px,2vw,32px)] font-medium tracking-tight transition-colors group-hover:text-np-blue">
+                    <span className="text-[clamp(19px,1.7vw,27px)] font-medium tracking-tight transition-colors group-hover:text-np-blue">
                       {item.label}
                     </span>
                     <span className="hidden flex-1 text-right text-np-label sm:block">{item.desc}</span>

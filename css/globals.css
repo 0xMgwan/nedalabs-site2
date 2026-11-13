@@ -77,11 +77,11 @@
 }
 
 .np { font-family: var(--font-space-default), Arial, sans-serif; color: var(--np-ink); background: var(--np-bone); }
-.np-label { font-family: var(--font-np-mono), "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; line-height: 1.4; }
+.np-label { font-family: var(--font-space-default), Arial, sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; line-height: 1.4; }
 .np-wrap { padding-inline: var(--np-px); }
-.np-display { font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; font-size: clamp(48px, 7.6vw, 132px); }
-.np-h2 { font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-size: clamp(40px, 5.4vw, 92px); }
-.np-body { font-weight: 500; font-size: clamp(16px, 1.25vw, 20px); line-height: 1.55; }
+.np-display { font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; font-size: clamp(42px, 5.8vw, 104px); }
+.np-h2 { font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-size: clamp(34px, 4.2vw, 72px); }
+.np-body { font-weight: 500; font-size: clamp(15px, 1.05vw, 18px); line-height: 1.55; }
 .np-focus:focus-visible { outline: 2px solid var(--np-blue); outline-offset: 3px; }
 
 .np-wave .np-ch { display: inline-block; opacity: 0; transform: translateY(0.45em); }
