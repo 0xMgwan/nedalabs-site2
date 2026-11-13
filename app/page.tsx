@@ -1,6 +1,7 @@
 import {
   NavBar,
   ProductsSection,
+  TokenizationSection,
   FeaturesSection,
   SimpleFXSection,
   DevelopersSection,
@@ -16,6 +17,7 @@ export default function Page() {
       <HeroAsciiOne />
 
       <ProductsSection />
+      <TokenizationSection />
       <FeaturesSection />
       <SimpleFXSection />
       <DevelopersSection />

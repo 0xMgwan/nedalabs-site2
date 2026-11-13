@@ -17,7 +17,7 @@ export function DevelopersSection() {
       <div className="np-wrap grid gap-16 py-24 lg:grid-cols-12 lg:py-32">
         <div className="lg:col-span-5">
           <Reveal>
-            <p className="np-label text-np-blue">04 · For developers</p>
+            <p className="np-label text-np-blue">05 · For developers</p>
           </Reveal>
           <WaveText as="h2" text="Build on NEDA." className="np-h2 mt-6" />
           <Reveal delay={200}>

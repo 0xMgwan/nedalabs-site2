@@ -9,7 +9,7 @@ export function FeaturesSection() {
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
           <Reveal>
-            <p className="np-label text-np-blue">02 · Why NEDA Labs</p>
+            <p className="np-label text-np-blue">03 · Why NEDA Labs</p>
           </Reveal>
           <WaveText as="h2" text="Built for trust." className="np-h2 mt-6" />
           <Reveal delay={200}>

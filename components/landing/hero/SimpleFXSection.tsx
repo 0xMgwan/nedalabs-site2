@@ -24,7 +24,7 @@ export function SimpleFXSection() {
           <Reveal>
             <p className="np-label flex items-center gap-3 text-np-blue">
               <Image src="/assets/logos/simplefx.svg" alt="" width={24} height={24} className="h-6 w-6 rounded-md bg-np-paper object-contain p-0.5" />
-              03 · SimpleFX
+              04 · SimpleFX
             </p>
           </Reveal>
           <WaveText as="h2" text="Earn while you sleep." className="np-h2 mt-6 max-w-[12ch]" />

@@ -15,3 +15,4 @@ export { DevelopersSection } from './DevelopersSection';
 export { CtaSection } from './CtaSection';
 export { SiteFooter } from './SiteFooter';
 export { SimpleFXSection } from './SimpleFXSection';
+export { TokenizationSection } from './TokenizationSection';

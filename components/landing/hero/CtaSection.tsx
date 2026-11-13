@@ -6,7 +6,7 @@ export function CtaSection() {
   return (
     <section id="get-started" className="np-wrap scroll-mt-24 py-24 lg:py-36">
       <Reveal>
-        <p className="np-label text-np-blue">05 · Get started</p>
+        <p className="np-label text-np-blue">06 · Get started</p>
       </Reveal>
       <WaveText as="h2" text="Ready to move money differently?" className="np-display mt-6 max-w-[14ch]" />
       <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-end">
