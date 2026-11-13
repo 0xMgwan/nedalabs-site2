@@ -47,7 +47,7 @@ export function ProductsSection() {
                 <span className="np-body text-np-ink/75">{product.description}</span>
                 <ul className="flex flex-wrap gap-2">
                   {product.features.map((feature) => (
-                    <li key={feature} className="np-label rounded-full border border-np-ink/15 px-3 py-1.5 text-[11px] text-np-label">
+                    <li key={feature} className="rounded-full border border-np-ink/15 px-3 py-1.5 text-sm font-semibold text-np-ink/70">
                       {feature}
                     </li>
                   ))}
