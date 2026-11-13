@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Reveal, WaveText } from '@/components/np/motion';
 
 const ASSETS = [
@@ -156,9 +157,14 @@ export function TokenizationSection() {
               aria-hidden={i >= TICKERS.length}
               className="flex shrink-0 items-center gap-3 rounded-full border border-np-bone/20 py-2 pl-2 pr-5"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-np-bone font-mono text-xs font-medium text-np-ink">
-                {sym[0]}
-              </span>
+              <Image
+                src={`/assets/stocks/${sym}.png`}
+                alt=""
+                width={32}
+                height={32}
+                loading="eager"
+                className={`h-8 w-8 rounded-full bg-np-paper ${sym === 'CRDB' ? 'object-contain p-0.5' : 'object-cover'}`}
+              />
               <span className="font-mono text-sm font-medium">{sym}</span>
               <span className="text-sm text-np-bone/60">{name}</span>
               <span className="np-label text-[10px] text-np-blue">24/7</span>
